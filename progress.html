@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<style>
+  * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .progress {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 380px;
+      margin: 100px auto;
+    }
+
+    .progress-bar {
+      position: relative;
+      width: 70%;
+      height: 5px;
+      background-color: #eee;
+      vertical-align: 2px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .now {
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      height: 5px;
+      width: 70%;
+      background: #31c27c;
+    }
+
+    .now::after {
+      content: '';
+      position: absolute;
+      left: 100%;
+      width: 3px;
+      height: 7px;
+      background-color: lightblue;
+    }
+</style>
+<body>
+
+
+	<audio controls height="0" width="0" id="music" src="https://tresre.dev/music/assets/mp3/All_Alone$Fun.mp3"></audio>
+
+	<div class="progress">
+    	<span class="start"></span>
+    	<div class="progress-bar">
+			<div class="now"></div>
+		</div>
+		<span class="end"></span>
+	</div>
+
+<script>
+  const audio = document.getElementById('music')
+  const start = document.querySelector('.start')
+  const end = document.querySelector('.end')
+  const progressBar = document.querySelector('.progress-bar')
+  const now = document.querySelector('.now')
+
+  function conversion (value) {
+    let minute = Math.floor(value / 60)
+    minute = minute.toString().length === 1 ? ('0' + minute) : minute
+    let second = Math.round(value % 60)
+    second = second.toString().length === 1 ? ('0' + second) : second
+    return `${minute}:${second}`
+  }
+
+  audio.onloadedmetadata = function () {
+    end.innerHTML = conversion(audio.duration)
+    start.innerHTML = conversion(audio.currentTime)
+  }
+
+  progressBar.addEventListener('click', function (event) {
+    let coordStart = this.getBoundingClientRect().left
+    let coordEnd = event.pageX
+    let p = (coordEnd - coordStart) / this.offsetWidth
+    now.style.width = p.toFixed(3) * 100 + '%'
+
+    audio.currentTime = p * audio.duration
+    audio.play()
+  })
+
+  setInterval(() => {
+    start.innerHTML = conversion(audio.currentTime)
+    now.style.width = audio.currentTime / audio.duration.toFixed(3) * 100 + '%'
+  }, 1000)
+</script>
+
+</body>
+</html>
