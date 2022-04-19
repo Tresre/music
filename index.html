@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" media="screen" href="assets/css/style.css">
+<style>
+  @import url(https://fonts.googleapis.com/css2?family=Source+Code+Pro);
+  html {
+    background-color: black;
+  }
+</style>
+<body>
+  <div class="musicplayer">
+    <label class="play">
+      <input type="checkbox" id="musicToggle" onclick="musicPlayer()">
+      <span class="playtoggle"><img src="assets/equalizer.gif" alt="" style="width:90px; height:90px; border-radius: 90px; object-fit: cover;"></span>
+    </label>
+    <label class="button">
+      <input class="bslider" type="checkbox" id="musicMute" onclick="musicVolume()" checked>
+      <span class="bslider"></span>
+    </label>
+    <h1 class="vibing">What I'm Vibing</h1>
+    <span id="songChoice" class="songname" onclick="chooseSong(1)" style="cursor: pointer;"></span>
+  </div>
+
+<script src="assets/js/player.js"></script>
+
+</body>
+</html>
