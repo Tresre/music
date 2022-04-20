@@ -6,10 +6,11 @@
     background-color: #1e1e1e;
   }
   .musicplayer {
-    position: absolute;
+  	position: relative;
     margin: auto;
-    width: 270px;
-    height: 90px;
+    width: 50%;
+    border: 3px solid green;
+	top: 205px;
   }
   .vibing {
     text-align: center;
@@ -42,14 +43,14 @@
   }
   .playtoggle {
     position: relative;
-    display: inline-block;
-    width: 90px;
-    height: 90px;
-    border-radius: 90px;
+    display: block;
+    margin: auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
     cursor: pointer;
     background-color: #ccc;
     transition: .4s;
-    left: -20px;
   }
   .play input { 
     visibility: hidden;
@@ -58,34 +59,39 @@
     background-color: #2196F3;
   }
   .button {
-    position: absolute;
-    display: inline-block;
+    position: relative;
+    display: block;
+    margin: auto;
+    left: -70px;
     width: 0px;
     height: 0px;
-    left: 110px;
   }
   .button input { 
     visibility: hidden;
   }
   .bslider {
-    position: absolute;
+    position: relative;
+    display: block;
+    margin: auto;
     cursor: pointer;
     background-color: #ccc;
     transition: .4s;
-    width: 10px;
-    height: 90px;
+    width: 150px;
+    height: 8px;
     border-radius: 34px;
   }
   .bslider:before {
-    position: absolute;
+    position: relative;
+    display: block;
+    margin: auto;
     content: "";
-    height: 25px;
-    width: 25px;
-    bottom: 3px;
-    left: -7px;
+    height: 17px;
+    width: 17px;
+    bottom: 4px;
+    right: 60px;
     background-color: gray;
     -webkit-transition: .4s;
-    transition: .4s;
+    transition: .7s;
     border-radius: 50%;
   }
   input:checked + .bslider {
@@ -95,9 +101,9 @@
     box-shadow: 0 0 1px #2196F3;
   }
   input:checked + .bslider:before {
-    -webkit-transform: translateY(-58px);
-    -ms-transform: translateY(-58px);
-    transform: translateY(-58px);
+    -webkit-transform: translateX(120px);
+    -ms-transform: translateX(120px);
+    transform: translateX(120px);
   }
   * {
       margin: 0;
@@ -116,10 +122,10 @@
     .progress-bar {
       position: relative;
       width: 70%;
-      height: 5px;
+      height: 8px;
       background-color: #eee;
       vertical-align: 2px;
-      border-radius: 3px;
+      border-radius: 5px;
       cursor: pointer;
     }
 
@@ -127,7 +133,7 @@
       position: absolute;
       left: 0;
       display: inline-block;
-      height: 5px;
+      height: 8px;
       width: 70%;
       background: #2196F3;
     }
@@ -135,19 +141,19 @@
     .now::after {
       content: '';
       position: absolute;
-      left: 100%;
-      height: 15px;
-      width: 15px;
+      left: 98%;
+      height: 17px;
+      width: 17px;
       background-color: gray;
-      border-radius: 50%;
-      top: -5px;
+      border-radius: 17px;
+      top: -4px;
     }
 </style>
 <body>
   <div class="musicplayer">
     <label class="play">
       <input type="checkbox" id="musicToggle" onclick="musicPlayer()">
-      <span class="playtoggle"><img src="https://tresre.dev/music/assets/equalizer.gif" alt="" style="width:90px; height:90px; border-radius: 90px; object-fit: cover;"></span>
+      <span class="playtoggle"><img src="https://tresre.dev/music/assets/equalizer.gif" alt="" style="width:80px; height:80px; border-radius: 80px; object-fit: cover;"></span>
     </label>
     <label class="button">
       <input class="bslider" type="checkbox" id="musicMute" onclick="musicVolume()" checked>
