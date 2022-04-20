@@ -1,2 +1,2 @@
-# TresMusic (WIP)
+# Music (WIP)
 Full Music Player made using HTML, CSS, and JS.
