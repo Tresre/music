@@ -17,6 +17,7 @@
   	position: relative;
     margin: auto;
     width: 75%;
+    max-width: 800px;
     height: 370px;
 	padding: 20px;
 	top: 5%;
@@ -70,8 +71,19 @@
   .back {
   	position: relative;
     display: block;
-    top: 84px;
-    right: 80px;
+    bottom: 65px;
+    right: 83px;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: .4s;
+  }
+  .skip {
+  	position: relative;
+    display: block;
+    bottom: 115px;
+    left: 83px;
     margin: auto;
     width: 50px;
     height: 50px;
@@ -150,7 +162,7 @@
       border: 1px solid red;
       margin: auto;
       width: 70%;
-      max-width: 700px;
+      max-width: 650px;
       padding: 10px;
     }
 
@@ -198,16 +210,16 @@
           <span class="end"></span>
       </div>
     </div>
-    <span class="back"><img src="https://tresre.dev/music/assets/arrows.png" alt="" style="width:50px; height:50px; cursor: pointer; transform: rotate(180deg);"></span>
     <label class="play">
       <input type="checkbox" id="musicToggle" onclick="musicPlayer()">
       <span class="playtoggle"><img src="https://tresre.dev/music/assets/equalizer.gif" alt="" style="width:80px; height:80px; border-radius: 80px; object-fit: cover;"></span>
     </label>
-    <span class="skip"><img src="https://tresre.dev/music/assets/arrows.png" alt="" style="width:50px; height:50px; cursor: pointer;"></span>
     <label class="button">
       <input class="bslider" type="checkbox" id="musicMute" onclick="musicVolume()" checked>
       <span class="bslider"></span>
     </label>
+    <span class="back"><img src="https://tresre.dev/music/assets/arrows.png" alt="" style="width:50px; height:50px; cursor: pointer; transform: rotate(180deg);"></span>
+    <span class="skip"><img src="https://tresre.dev/music/assets/arrows.png" alt="" style="width:50px; height:50px; cursor: pointer;"></span>
   </div>
 
 
