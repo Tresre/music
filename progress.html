@@ -123,15 +123,17 @@
     }
 
     .progress {
+      position: relative;
+      top: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 380px;
-      margin: 100px auto;
       color: #fff;
       font-size: 15px;
       font-family: Source Code Pro;
       font-weight: 300;
+      border: 1px solid orange;
+      padding: 10px;
     }
 
     .progress-bar {
@@ -142,6 +144,13 @@
       vertical-align: 2px;
       border-radius: 5px;
       cursor: pointer;
+    }
+    
+    .progressalign {
+      border: 1px solid red;
+      margin: auto;
+      width: 70%;
+      max-width: 700x;
     }
 
     .now {
@@ -182,14 +191,15 @@
 
 
 	<audio height="0" width="0" id="music" src="https://tresre.dev/music/assets/mp3/All_Alone$Fun.mp3"></audio>
-
-	<div class="progress">
-    	<span class="start"></span>
-    	<div class="progress-bar">
-			<div class="now"></div>
-		</div>
-		<span class="end"></span>
-	</div>
+	<div class="progressalign">
+      <div class="progress">
+          <span class="start"></span>
+          <div class="progress-bar">
+              <div class="now"></div>
+          </div>
+          <span class="end"></span>
+      </div>
+    </div>
 </div>
 
 <script>
