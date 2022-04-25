@@ -147,6 +147,7 @@
     }
     
     .progressalign {
+      position: relative;
       border: 1px solid red;
       margin: auto;
       width: 70%;
@@ -178,6 +179,15 @@
   <div class="musicplayer">
   	<h1 class="vibing">What I'm Vibing</h1>
     <span id="songChoice" class="songname" onclick="chooseSong(1)" style="cursor: pointer;"></span>
+    <div class="progressalign">
+      <div class="progress">
+          <span class="start"></span>
+          <div class="progress-bar">
+              <div class="now"></div>
+          </div>
+          <span class="end"></span>
+      </div>
+    </div>
     <label class="play">
       <input type="checkbox" id="musicToggle" onclick="musicPlayer()">
       <span class="playtoggle"><img src="https://tresre.dev/music/assets/equalizer.gif" alt="" style="width:80px; height:80px; border-radius: 80px; object-fit: cover;"></span>
@@ -191,15 +201,7 @@
 
 
 	<audio height="0" width="0" id="music" src="https://tresre.dev/music/assets/mp3/All_Alone$Fun.mp3"></audio>
-	<div class="progressalign">
-      <div class="progress">
-          <span class="start"></span>
-          <div class="progress-bar">
-              <div class="now"></div>
-          </div>
-          <span class="end"></span>
-      </div>
-    </div>
+	
 </div>
 
 <script>
