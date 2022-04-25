@@ -8,7 +8,7 @@
   .controls {
   	position: absolute;
     margin: auto;
-    width: 100%;
+    width: 99.75%;
     height: 50%;
     top: 100px;
     border: 1px solid green;
@@ -17,7 +17,7 @@
   	position: relative;
     margin: auto;
     width: 50%;
-	top: 110px;
+	top: 50%;
     border: 1px solid blue;
   }
   .vibing {
@@ -33,6 +33,7 @@
     height: 15px;
     overflow: hidden;  
     border-radius: 7px;
+    z-index: 1;
   }
   .songname {
   	position: relative;
@@ -49,7 +50,7 @@
     background: #1a1a1a;
     overflow: hidden;
     border-radius: 7px;
-    top: -150px;
+    top: -120px;
   }
   .playtoggle {
     position: relative;
@@ -166,6 +167,8 @@
 <body>
 <div class="controls">
   <div class="musicplayer">
+  	<h1 class="vibing">What I'm Vibing</h1>
+    <span id="songChoice" class="songname" onclick="chooseSong(1)" style="cursor: pointer;"></span>
     <label class="play">
       <input type="checkbox" id="musicToggle" onclick="musicPlayer()">
       <span class="playtoggle"><img src="https://tresre.dev/music/assets/equalizer.gif" alt="" style="width:80px; height:80px; border-radius: 80px; object-fit: cover;"></span>
@@ -175,9 +178,6 @@
       <span class="bslider"></span>
     </label>
   </div>
-  
-    <h1 class="vibing">What I'm Vibing</h1>
-    <span id="songChoice" class="songname" onclick="chooseSong(1)" style="cursor: pointer;"></span>
 
 
 
