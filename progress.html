@@ -105,6 +105,20 @@
     text-align: center;
     border-radius: 100px;
   }
+  .shuffle {
+  	position: relative;
+    display: block;
+    bottom: 282px;
+    right: 150px;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: .4s;
+    background: #ddd;
+    text-align: center;
+    border-radius: 100px;
+  }
   .play input { 
     visibility: hidden;
   }
@@ -243,8 +257,13 @@
     <span class="skip" onclick="musicSkip()"><img src="https://tresre.dev/music/assets/arrows.png" alt="" style="width:50px; height:50px; object-fit: cover; cursor: pointer; padding-top: 7px; padding-left: 7px;"></span>
     
     <label class="play">
-      <input type="checkbox" id="musicToggle" onclick="musicLoop()">
+      <input type="checkbox" id="musicRepeat" onclick="musicRepeat()">
       <span class="repeat"><img src="https://tresre.dev/music/assets/repeat.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 10px;"></span>
+    </label>
+    
+    <label class="play">
+      <input type="checkbox" id="musicShuffle" onclick="musicShuffle()" checked>
+      <span class="shuffle"><img src="https://tresre.dev/music/assets/shuffle.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 10px;"></span>
     </label>
   </div>
 
