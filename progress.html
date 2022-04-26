@@ -8,10 +8,10 @@
   .controls {
   	position: absolute;
     margin: auto;
-    width: 99.75%;
-    height: 55%;
+    width: 100%;
+    height: 95%;
     top: 10%;
-    border: 1px solid green;
+    background-color: #141414;
   }
   .musicplayer {
   	position: relative;
@@ -20,9 +20,8 @@
     max-width: 800px;
     height: 475px;
 	top: 5%;
-    background-color: #141414;
   }
-  .vibing {
+  .songname {
     text-align: center;
     position: absolute;
     font-size: 12px;
@@ -39,7 +38,7 @@
   	font-weight: 700;
   	font-size: 17px;
   }
-  .songname {
+  .cover {
   	position: relative;
     display: block;
     margin: auto;
@@ -179,14 +178,13 @@
       font-family: Source Code Pro;
       font-weight: 300;
       position: relative;
-      border: 1px solid red;
+      border: 0px solid red;
       margin: auto;
       width: 70%;
       max-width: 650px;
-      padding-top: 18px;
+      padding-top: 10px;
       padding-bottom: 0px;
     }
-
     .progress-bar {
       position: relative;
       width: 80%;
@@ -221,8 +219,9 @@
 <body>
 <div class="controls">
   <div class="musicplayer">
-  	<h1 class="vibing">What I'm Vibing</h1>
-    <span id="songChoice" class="songname"></span>
+    <span id="songCover" class="cover"></span>
+    <span id="songChoice" class="songname"><p class="bold">Song Name</p>
+    <span id="songArtist">Song Artist</span>
     <div class="progressalign">
       <div class="progress">
           <span class="start"></span>
