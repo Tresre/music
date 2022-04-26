@@ -108,7 +108,7 @@
   .shuffle {
   	position: relative;
     display: block;
-    bottom: 280px;
+    bottom: 279px;
     right: 150px;
     margin: auto;
     width: 50px;
@@ -126,6 +126,9 @@
     background-color: #2196F3;
   }
   input:checked + .repeat {
+    background-color: #2196F3;
+  }
+  input:checked + .shuffle {
     background-color: #2196F3;
   }
   .button {
@@ -262,7 +265,7 @@
     </label>
     
     <label class="play">
-      <input type="checkbox" id="musicShuffle" onclick="musicShuffle()" checked>
+      <input type="checkbox" id="musicShuffle" onclick="musicShuffle()">
       <span class="shuffle"><img src="https://tresre.dev/music/assets/shuffle.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 10px;"></span>
     </label>
   </div>
