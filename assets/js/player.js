@@ -16,7 +16,12 @@ function chooseSong(p) {
   "Only_Human$Jonas_Brothers",
   "Sunflower$Post_Malone",
   "Talk$Two_Door_Cinema",
-  "Thunder$SHAED"
+  "Thunder$SHAED",
+  "Gotta_Get_Up$Harry_Nilsson",
+  "Parking_Lot_View$Almost_Monday",
+  "Levitating$Dua_Lipa",
+  "Hallucinations$PVRIS",
+  "Bitter_Sweet_Symphony$The_Verve"
   ];
 
   var randomItem = playlist[Math.floor(Math.random()*playlist.length)];
