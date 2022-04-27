@@ -286,6 +286,7 @@
 <script>
 var music;
 var songChoice;
+var shuffleChoice;
 playedSongs = [];
 chooseSong(0);
 
@@ -310,7 +311,11 @@ function chooseSong(p) {
   "Bitter_Sweet_Symphony$The_Verve"
   ];
 
-  var randomItem = playlist[Math.floor(Math.random()*playlist.length)];
+  if (document.getElementById("musicShuffle").checked == true) {
+  	var randomItem = playlist[Math.floor(Math.random()*playlist.length)];
+  } else {
+  	
+  }
   
   var setmusic = music;
   if (setmusic !== undefined) {
@@ -368,6 +373,12 @@ function chooseSong(p) {
       }
     }
   }
+}
+
+function musicShuffle() {
+    if (document.getElementById("musicShuffle").checked == true) {
+    	chooseSong(0);
+    }
 }
 
 function musicVolume(vol) {
