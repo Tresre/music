@@ -416,6 +416,7 @@ function musicPlayer() {
   }
 }
 
+function startBar () {
 const start = document.querySelector('.start');
 const end = document.querySelector('.end');
 const progressBar = document.querySelector('.progress-bar');
@@ -441,9 +442,9 @@ progressBar.addEventListener('click', function (event) {
     now.style.width = p.toFixed(3) * 100 + '%'
 
     music.currentTime = p * music.duration
+    
 })
   
-function startBar () {
     setInterval(() => {
     	start.innerHTML = conversion(music.currentTime)
     	now.style.width = music.currentTime / music.duration.toFixed(3) * 100 + '%'
