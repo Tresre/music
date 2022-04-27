@@ -387,21 +387,14 @@ function chooseSong(p) {
 
 function musicBack() {
   var currentSong = songChoice;
+  
+  console.log("test " + playedSongs.length);
 
   if (document.getElementById("musicShuffle").checked == true) {
-  	var lastIndex = playedSongs.indexOf(currentSong);
-    var nextIndex = --lastIndex;
-    playedSongs.splice(lastIndex);
-    console.log("shuffle" + lastIndex + " " + nextIndex + " " + currentSong)
-    if (nextIndex < 0) {
-        nextIndex = 0;
-        playedSongs = [];
-    }
-    if (lastIndex == undefined) {
-    	var randomItem = playlist[0];
-    } else {
-    	var randomItem = playlist[nextIndex];
-    }
+  	var lastIndex = playedSongs.length;
+    playedSongs.splice(lastIndex, 1);
+    var nextIndex = --playedSongs.length;
+    var randomItem = playedSongs[nextIndex];
   } else {
   	var lastIndex = playlist.indexOf(currentSong);
     var nextIndex = --lastIndex;
@@ -416,6 +409,9 @@ function musicBack() {
     	var randomItem = playlist[nextIndex];
     }
   }
+  
+  console.log("shuffle " + lastIndex + " " + nextIndex + " " + currentSong + " " + randomItem);
+  console.log(playedSongs);
   
   songChoice = randomItem;
   
