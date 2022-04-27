@@ -54,7 +54,7 @@
     margin: auto;
     text-align: center;
     width: auto;
-    min-width: 100px;
+    min-width: 190px;
     max-width: 250px;
     height: 200px;
     border: 7px solid #2196F3;
@@ -246,7 +246,7 @@
 <body>
 <div class="controls">
   <div class="musicplayer">
-    <span id="songCover" class="cover"></span>
+    <span id="songCover"></span>
     <span id="songName" class="songname"></span>
     <span id="songArtist" class="songartist"></span>
     <br><br><br>
@@ -357,7 +357,7 @@ function chooseSong(p) {
       document.getElementById("songArtist").innerHTML = songArtist;
       console.log(songArtist);
       music = new Audio('https://tresre.dev/music/assets/mp3/' + randomItem + '.mp3');
-      document.getElementById("songCover").innerHTML = "<img src='https://tresre.dev/music/assets/covers/" + randomItem + ".mp3' style='width: auto; height: 200px; border: none;'>";
+      document.getElementById("songCover").innerHTML = "<img src='https://tresre.dev/music/assets/covers/" + randomItem + ".png' style='height: 200px;' class='cover'>";
       dupeSongs.push(songChoice);
 	  playedSongs.push(songChoice);
       console.log(playedSongs);
