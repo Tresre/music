@@ -288,11 +288,7 @@ var music;
 var songChoice;
 var shuffleChoice;
 playedSongs = [];
-chooseSong(0);
-
-function chooseSong(p) {
-  var lastSong = songChoice;
-  var playlist = [
+var playlist = [
   "All_About_You$The_Knocks",
   "All_Alone$Fun",
   "Bitter_Sweet_Symphony$The_Verve",
@@ -309,6 +305,10 @@ function chooseSong(p) {
   "Talk$Two_Door_Cinema",
   "Thunder$SHAED"
   ];
+chooseSong(0);
+
+function chooseSong(p) {
+  var lastSong = songChoice;
 
   if (document.getElementById("musicShuffle").checked == true) {
   	var randomItem = playlist[Math.floor(Math.random()*playlist.length)];
@@ -383,6 +383,80 @@ function chooseSong(p) {
     }
   }
 }
+
+function musicBack() {
+  var currentSong = songChoice;
+
+  if (document.getElementById("musicShuffle").checked == true) {
+  	var lastIndex = playedSongs.indexOf(currentSong);
+    var nextIndex = --lastIndex;
+    if (nextIndex <= 0) {
+        nextIndex = 0;
+        playedSongs = [];
+    }
+    if (lastIndex == undefined) {
+    	var randomItem = playlist[0];
+    } else {
+    	var randomItem = playlist[nextIndex];
+    }
+  } else {
+  	var lastIndex = playlist.indexOf(currentSong);
+    var nextIndex = --lastIndex;
+    if (nextIndex < 0) {
+        nextIndex = 15;
+        playedSongs = [];
+    }
+    if (lastIndex == undefined) {
+    	var randomItem = playlist[0];
+    } else {
+    	var randomItem = playlist[nextIndex];
+    }
+  }
+  
+  var setmusic = music;
+  if (setmusic !== undefined) {
+  	setmusic.pause();
+  }
+
+  songChoice = randomItem;
+    
+  const splitSong = songChoice.split("$");
+  songName = splitSong[0];
+  songName = songName.replace(/_/g, " ");
+  songArtist = splitSong[1];
+  songArtist = songArtist.replace(/_/g, " ");
+  document.getElementById("songName").innerHTML = songName;
+  console.log(songName);
+  document.getElementById("songArtist").innerHTML = songArtist;
+  console.log(songArtist);
+  music = new Audio('https://tresre.dev/music/assets/mp3/' + randomItem + '.mp3');
+      
+  startBar();
+      
+  if (window[songChoice] == undefined) {
+    window[songChoice] = 0;
+  }
+  window[songChoice] = ++window[songChoice];
+  console.log(songChoice + ' - ' + window[songChoice]); 
+    
+  music.onended = function() {
+    chooseSong(1);
+  };
+
+  if (p === 1) {
+    if (document.getElementById("musicToggle").checked == true) {
+      music.play();
+      music.currentTime = 0;
+    }
+    if (document.getElementById("musicMute").checked == true) {
+      music.muted = false;
+    } else {
+      music.muted = true;
+    }
+  }
+}
+
+
 
 function musicShuffle() {
     if (document.getElementById("musicShuffle").checked == true) {
