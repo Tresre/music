@@ -295,19 +295,19 @@ function chooseSong(p) {
   var playlist = [
   "All_About_You$The_Knocks",
   "All_Alone$Fun",
+  "Bitter_Sweet_Symphony$The_Verve",
+  "Gotta_Get_Up$Harry_Nilsson",
+  "Hallucinations$PVRIS",
   "Heat_Waves$Glass_Animals",
+  "Levitating$Dua_Lipa",
   "Live_In_The_Moment$Portugal",
   "Nice_To_Meet_Ya$Niall_Horan",
   "No_Rest_For_The_Wicked$Cage_The_Elephant",
   "Only_Human$Jonas_Brothers",
+  "Parking_Lot_View$Almost_Monday",
   "Sunflower$Post_Malone",
   "Talk$Two_Door_Cinema",
-  "Thunder$SHAED",
-  "Gotta_Get_Up$Harry_Nilsson",
-  "Parking_Lot_View$Almost_Monday",
-  "Levitating$Dua_Lipa",
-  "Hallucinations$PVRIS",
-  "Bitter_Sweet_Symphony$The_Verve"
+  "Thunder$SHAED"
   ];
 
   if (document.getElementById("musicShuffle").checked == true) {
@@ -315,12 +315,16 @@ function chooseSong(p) {
   } else {
   	var lastIndex = playlist.indexOf(lastSong);
     var nextIndex = ++lastIndex;
-    if (nextIndex === playlist.length) {
+    if (nextIndex >= playlist.length) {
         nextIndex = 0;
+        playedSongs = [];
     }
-    var randomItem = playlist[nextIndex];
-  	console.log(lastIndex);
-    return;
+    if (lastIndex == undefined) {
+    	var randomItem = playlist[0];
+    } else {
+    	var randomItem = playlist[nextIndex];
+    }
+  	console.log(lastIndex + "-index-" + nextIndex);
   }
   
   var setmusic = music;
@@ -336,7 +340,7 @@ function chooseSong(p) {
     
     if (playedSongs.includes(songChoice) === true) {
       chooseSong(1);
-      if (playedSongs.length === playlist.length) {
+      if (playedSongs.length >= playlist.length) {
         playedSongs = [];
       }
       return;
