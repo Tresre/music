@@ -388,16 +388,19 @@ function chooseSong(p) {
 function musicBack() {
   var currentSong = songChoice;
   
-  console.log("test " + playedSongs.length);
   
-  console.log("first " + playedSongs[1]);
-
+  
   if (document.getElementById("musicShuffle").checked == true) {
-  	var lastIndex = playedSongs.length;
-    playedSongs.splice(lastIndex, 1);
-    var nextIndex = --playedSongs.length;
-    var randomItem = playlist[1];
-    console.log("shuffleee " + playedSongs.length + " " + lastIndex + " " + nextIndex + " " + currentSong + " " + randomItem);
+  	var lastIndex = playedSongs.length -= 1;
+    console.log(playedSongs.length);
+    if (playedSongs.length > 1) {
+    	console.log("GREATERTHANGREATERTHAN");
+    	playedSongs.splice(lastIndex, 1);
+    	var nextIndex = --lastIndex;
+    	var randomItem = playedSongs[nextIndex];
+    } else {
+		var randomItem = playedSongs[0];
+    }
   } else {
   	var lastIndex = playlist.indexOf(currentSong);
     var nextIndex = --lastIndex;
@@ -413,17 +416,16 @@ function musicBack() {
     }
   }
   
-  console.log("shuffle " + lastIndex + " " + nextIndex + " " + currentSong + " " + randomItem);
   console.log(playedSongs);
-  
   songChoice = randomItem;
   
   var setmusic = music;
   if (setmusic !== undefined) {
   	setmusic.pause();
   }
-    
-  const splitSong = songChoice.split("$");
+  
+  var splitpre = String(songChoice);
+  const splitSong = splitpre.split("$");
   songName = splitSong[0];
   songName = songName.replace(/_/g, " ");
   songArtist = splitSong[1];
