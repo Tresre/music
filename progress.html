@@ -392,7 +392,8 @@ function musicBack() {
   	var lastIndex = playedSongs.indexOf(currentSong);
     var nextIndex = --lastIndex;
     playedSongs.splice(lastIndex);
-    if (nextIndex <= 0) {
+    console.log("shuffle" + lastIndex + " " + nextIndex + " " + currentSong)
+    if (nextIndex < 0) {
         nextIndex = 0;
         playedSongs = [];
     }
@@ -464,8 +465,10 @@ function musicBack() {
 function musicShuffle() {
     if (document.getElementById("musicShuffle").checked == true) {
     	if (document.getElementById("musicToggle").checked == true) {
+          playedSongs = [];
           chooseSong(1);
         } else {
+          playedSongs = [];
     	  chooseSong(0);
         }
     }
