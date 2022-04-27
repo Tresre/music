@@ -194,53 +194,53 @@
       padding: 0;
     }
 
-    .progress {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #fff;
-      font-size: 15px;
-      font-family: Source Code Pro;
-      font-weight: 300;
-      position: relative;
-      border: 0px solid red;
-      margin: auto;
-      width: 70%;
-      max-width: 650px;
-      padding-top: 10px;
-      padding-bottom: 0px;
-    }
-    .progress-bar {
-      position: relative;
-      width: 80%;
-      height: 8px;
-      background-color: #eee;
-      vertical-align: 2px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+  .progress {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-size: 15px;
+    font-family: Source Code Pro;
+    font-weight: 300;
+    position: relative;
+    border: 0px solid red;
+    margin: auto;
+    width: 70%;
+    max-width: 650px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+  }
+  .progress-bar {
+    position: relative;
+    width: 80%;
+    height: 8px;
+    background-color: #eee;
+    vertical-align: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 
-    .now {
-      position: absolute;
-      left: 0;
-      width: 70%;
-      display: inline-block;
-      height: 8px;
-      background: #2196F3;
-      border-radius: 10px 0px 0px 10px;
-    }
+  .now {
+    position: absolute;
+    left: 0;
+    width: 70%;
+    display: inline-block;
+    height: 8px;
+    background: #2196F3;
+    border-radius: 10px 0px 0px 10px;
+  }
 
-    .now::after {
-      content: '';
-      position: absolute;
-      left: 97%;
-      height: 17px;
-      width: 17px;
-      background-color: gray;
-      border-radius: 17px;
-      top: -4px;
-    }
+  .now::after {
+    content: '';
+    position: absolute;
+    left: 97%;
+    height: 17px;
+    width: 17px;
+    background-color: gray;
+    border-radius: 17px;
+    top: -4px;
+  }
 </style>
 <body>
 <div class="controls">
@@ -356,6 +356,7 @@ function chooseSong(p) {
       document.getElementById("songArtist").innerHTML = songArtist;
       console.log(songArtist);
       music = new Audio('https://tresre.dev/music/assets/mp3/' + randomItem + '.mp3');
+      document.getElementById("songCover").innerHTML = "<img src='https://tresre.dev/music/assets/covers/" + randomItem + ".mp3' style='width: 200px; height: 200px; border: none;'>";
       dupeSongs.push(songChoice);
 	  playedSongs.push(songChoice);
       console.log(playedSongs);
