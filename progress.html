@@ -288,6 +288,7 @@ var music;
 var songChoice;
 var shuffleChoice;
 var playedSongs = [];
+var dupeSongs = [];
 var playlist = [
   "All_About_You$The_Knocks",
   "All_Alone$Fun",
@@ -318,7 +319,7 @@ function chooseSong(p) {
     console.log(lastIndex + " " + nextIndex + " " + lastSong);
     if (nextIndex >= playlist.length) {
         nextIndex = 0;
-        playedSongs = [];
+        dupeSongs = [];
     }
     if (lastIndex == undefined) {
     	var randomItem = playlist[0];
@@ -338,10 +339,10 @@ function chooseSong(p) {
   } else {
     songChoice = randomItem;
     
-    if (playedSongs.includes(songChoice) === true) {
+    if (dupeSongs.includes(songChoice) === true) {
       chooseSong(1);
-      if (playedSongs.length >= playlist.length) {
-        playedSongs = [];
+      if (dupeSongs.length >= playlist.length) {
+        dupeSongs = [];
       }
       return;
     } else {
@@ -355,8 +356,10 @@ function chooseSong(p) {
       document.getElementById("songArtist").innerHTML = songArtist;
       console.log(songArtist);
       music = new Audio('https://tresre.dev/music/assets/mp3/' + randomItem + '.mp3');
-      playedSongs.push(songChoice);
+      dupeSongs.push(songChoice);
+	  playedSongs.push(songChoice);
       console.log(playedSongs);
+  	  console.log(dupeSongs);
       
       startBar();
       
@@ -391,23 +394,21 @@ function musicBack() {
   
   
   if (document.getElementById("musicShuffle").checked == true) {
-  	var lastIndex = playedSongs.length -= 1;
-    console.log(playedSongs.length);
     if (playedSongs.length > 1) {
-    	console.log("GREATERTHANGREATERTHAN");
-    	playedSongs.splice(lastIndex, 1);
+    	var lastIndex = --playedSongs.length;
     	var nextIndex = --lastIndex;
     	var randomItem = playedSongs[nextIndex];
     } else {
 		var randomItem = playedSongs[0];
+        return;
     }
   } else {
   	var lastIndex = playlist.indexOf(currentSong);
     var nextIndex = --lastIndex;
-    playedSongs.splice(lastIndex, 1);
+    dupeSongs.splice(lastIndex, 1);
     if (nextIndex < 0) {
         nextIndex = 15;
-        playedSongs = [];
+        dupeSongs = [];
     }
     if (lastIndex == undefined) {
     	var randomItem = playlist[0];
@@ -417,6 +418,7 @@ function musicBack() {
   }
   
   console.log(playedSongs);
+  console.log(dupeSongs);
   songChoice = randomItem;
   
   var setmusic = music;
@@ -465,9 +467,11 @@ function musicShuffle() {
     if (document.getElementById("musicShuffle").checked == true) {
     	if (document.getElementById("musicToggle").checked == true) {
           playedSongs = [];
+		  dupeSongs = [];
           chooseSong(1);
         } else {
           playedSongs = [];
+		  dupeSongs = [];
     	  chooseSong(0);
         }
     }
