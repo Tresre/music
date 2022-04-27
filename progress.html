@@ -423,7 +423,8 @@ function musicBack() {
     var nextIndex = --lastIndex;
     dupeSongs.splice(lastIndex, 1);
     if (nextIndex < 0) {
-        nextIndex = 15;
+        var nextIndex = playlist.length;
+        --nextIndex;
         dupeSongs = [];
     }
     if (lastIndex == undefined) {
