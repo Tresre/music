@@ -287,7 +287,7 @@
 var music;
 var songChoice;
 var shuffleChoice;
-playedSongs = [];
+var playedSongs = [];
 var playlist = [
   "All_About_You$The_Knocks",
   "All_Alone$Fun",
@@ -389,12 +389,15 @@ function musicBack() {
   var currentSong = songChoice;
   
   console.log("test " + playedSongs.length);
+  
+  console.log("first " + playedSongs[1]);
 
   if (document.getElementById("musicShuffle").checked == true) {
   	var lastIndex = playedSongs.length;
     playedSongs.splice(lastIndex, 1);
     var nextIndex = --playedSongs.length;
-    var randomItem = playedSongs[nextIndex];
+    var randomItem = playlist[1];
+    console.log("shuffleee " + playedSongs.length + " " + lastIndex + " " + nextIndex + " " + currentSong + " " + randomItem);
   } else {
   	var lastIndex = playlist.indexOf(currentSong);
     var nextIndex = --lastIndex;
@@ -443,16 +446,14 @@ function musicBack() {
     chooseSong(1);
   };
 
-  if (p === 1) {
-    if (document.getElementById("musicToggle").checked == true) {
-      music.play();
-      music.currentTime = 0;
-    }
-    if (document.getElementById("musicMute").checked == true) {
-      music.muted = false;
-    } else {
-      music.muted = true;
-    }
+  if (document.getElementById("musicToggle").checked == true) {
+     music.play();
+    music.currentTime = 0;
+  }
+  if (document.getElementById("musicMute").checked == true) {
+    music.muted = false;
+  } else {
+    music.muted = true;
   }
 }
 
@@ -524,10 +525,10 @@ progressBar.addEventListener('click', function (event) {
     
 })
   
-    setInterval(() => {
-    	start.innerHTML = conversion(music.currentTime)
-    	now.style.width = music.currentTime / music.duration.toFixed(3) * 100 + '%'
- 	}, 1000)
+setInterval(() => {
+  start.innerHTML = conversion(music.currentTime)
+  now.style.width = music.currentTime / music.duration.toFixed(3) * 100 + '%'
+}, 1000)
 }
 </script>
 
