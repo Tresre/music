@@ -292,7 +292,6 @@ chooseSong(0);
 
 function chooseSong(p) {
   var lastSong = songChoice;
-  var lastIndex = window[songChoice];
   var playlist = [
   "All_About_You$The_Knocks",
   "All_Alone$Fun",
@@ -314,7 +313,14 @@ function chooseSong(p) {
   if (document.getElementById("musicShuffle").checked == true) {
   	var randomItem = playlist[Math.floor(Math.random()*playlist.length)];
   } else {
-  	
+  	var lastIndex = playlist.indexOf(lastSong);
+    var nextIndex = ++lastIndex;
+    if (nextIndex === playlist.length) {
+        nextIndex = 0;
+    }
+    var randomItem = playlist[nextIndex];
+  	console.log(lastIndex);
+    return;
   }
   
   var setmusic = music;
