@@ -345,6 +345,19 @@ function chooseSong(p) {
       playedSongs.push(songChoice);
       console.log(playedSongs);
       
+      if (checkSong === undefined) {
+          var checkSong = songChoice;
+      }     
+      setInterval(() => {
+      	if (songChoice === checkSong) {
+        	start.innerHTML = conversion(music.currentTime);
+        	now.style.width = music.currentTime / music.duration.toFixed(3) * 100 + '%';
+        } else {
+			checkSong = songChoice;
+            return;
+        }
+      }, 1000)
+      
       if (window[songChoice] == undefined) {
   	    window[songChoice] = 0;
       }
@@ -422,11 +435,6 @@ function musicPlayer() {
 
     audio.currentTime = p * audio.duration
   })
-
-  setInterval(() => {
-    start.innerHTML = conversion(audio.currentTime)
-    now.style.width = audio.currentTime / audio.duration.toFixed(3) * 100 + '%'
-  }, 1000)
 </script>
 
 </body>
