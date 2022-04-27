@@ -283,8 +283,6 @@
 </div>
 
 
-
-
 <script>
 var music;
 var songChoice;
@@ -426,9 +424,9 @@ function musicPlayer() {
   
   function startBar () {
     setInterval(() => {
-    start.innerHTML = conversion(music.currentTime)
-    now.style.width = music.currentTime / music.duration.toFixed(3) * 100 + '%'
-  }, 1000)
+    	start.innerHTML = conversion(music.currentTime)
+    	now.style.width = music.currentTime / music.duration.toFixed(3) * 100 + '%'
+  	}, 1000)
   }
 </script>
 
