@@ -370,7 +370,21 @@ function chooseSong(p) {
       console.log(songChoice + ' - ' + window[songChoice]); 
       
       music.onended = function() {
-        chooseSong(1);
+      	if (document.getElementById("musicRepeat").checked == true) {
+          if (document.getElementById("musicToggle").checked == true) {
+            music.play();
+            music.currentTime = 0;
+            window[songChoice] = ++window[songChoice];
+     		console.log(songChoice + ' - ' + window[songChoice]); 
+          }
+          if (document.getElementById("musicMute").checked == true) {
+            music.muted = false;
+          } else {
+            music.muted = true;
+          }
+        } else {
+      	  chooseSong(1);
+        }
       };
 
       if (p === 1) {
