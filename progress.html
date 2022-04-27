@@ -395,39 +395,39 @@ function musicPlayer() {
   }
 }
 
-  const start = document.querySelector('.start');
-  const end = document.querySelector('.end');
-  const progressBar = document.querySelector('.progress-bar');
-  const now = document.querySelector('.now');
+const start = document.querySelector('.start');
+const end = document.querySelector('.end');
+const progressBar = document.querySelector('.progress-bar');
+const now = document.querySelector('.now');
 
-  function conversion (value) {
+function conversion (value) {
     let minute = Math.floor(value / 60)
     minute = minute.toString().length === 1 ? ('0' + minute) : minute
     let second = Math.round(value % 60)
     second = second.toString().length === 1 ? ('0' + second) : second
     return `${minute}:${second}`
-  }
+}
 
-  music.onloadedmetadata = function () {
+music.onloadedmetadata = function () {
     end.innerHTML = conversion(music.duration)
     start.innerHTML = conversion(music.currentTime)
-  }
+}
 
-  progressBar.addEventListener('click', function (event) {
+progressBar.addEventListener('click', function (event) {
     let coordStart = this.getBoundingClientRect().left
     let coordEnd = event.pageX
     let p = (coordEnd - coordStart) / this.offsetWidth
     now.style.width = p.toFixed(3) * 100 + '%'
 
     music.currentTime = p * music.duration
-  })
+})
   
-  function startBar () {
+function startBar () {
     setInterval(() => {
     	start.innerHTML = conversion(music.currentTime)
     	now.style.width = music.currentTime / music.duration.toFixed(3) * 100 + '%'
-  	}, 1000)
-  }
+ 	}, 1000)
+}
 </script>
 
 </body>
