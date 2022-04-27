@@ -315,6 +315,7 @@ function chooseSong(p) {
   } else {
   	var lastIndex = playlist.indexOf(lastSong);
     var nextIndex = ++lastIndex;
+    console.log(lastIndex + " " + nextIndex + " " + lastSong);
     if (nextIndex >= playlist.length) {
         nextIndex = 0;
         playedSongs = [];
@@ -390,6 +391,7 @@ function musicBack() {
   if (document.getElementById("musicShuffle").checked == true) {
   	var lastIndex = playedSongs.indexOf(currentSong);
     var nextIndex = --lastIndex;
+    playedSongs.splice(lastIndex);
     if (nextIndex <= 0) {
         nextIndex = 0;
         playedSongs = [];
@@ -402,6 +404,7 @@ function musicBack() {
   } else {
   	var lastIndex = playlist.indexOf(currentSong);
     var nextIndex = --lastIndex;
+    playedSongs.splice(lastIndex, 1);
     if (nextIndex < 0) {
         nextIndex = 15;
         playedSongs = [];
@@ -413,12 +416,12 @@ function musicBack() {
     }
   }
   
+  songChoice = randomItem;
+  
   var setmusic = music;
   if (setmusic !== undefined) {
   	setmusic.pause();
   }
-
-  songChoice = randomItem;
     
   const splitSong = songChoice.split("$");
   songName = splitSong[0];
