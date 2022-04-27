@@ -386,7 +386,11 @@ function chooseSong(p) {
 
 function musicShuffle() {
     if (document.getElementById("musicShuffle").checked == true) {
-    	chooseSong(0);
+    	if (document.getElementById("musicToggle").checked == true) {
+          chooseSong(1);
+        } else {
+    	  chooseSong(0);
+        }
     }
 }
 
