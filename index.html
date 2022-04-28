@@ -1,27 +1,574 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" media="screen" href="assets/css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 <style>
   @import url(https://fonts.googleapis.com/css2?family=Source+Code+Pro);
   html {
-    background-color: black;
+    background-color: #1e1e1e;
+  }
+  .controls {
+  	position: absolute;
+    margin: auto;
+    width: 100%;
+    height: 95%;
+    top: 10%;
+    background-color: #141414;
+  }
+  .musicplayer {
+  	position: relative;
+    margin: auto;
+    width: 99.7%;
+    max-width: 800px;
+    height: 475px;
+	top: 15px;
+  }
+  .songname {
+    text-align: center;
+    position: absolute;
+    font-size: 20px;
+    font-family: Source Code Pro;
+    font-weight: 600;
+    color: #ffffff;
+    width: 100%;
+    height: 15px;
+    padding-top: 10px;
+  }
+  .songartist {
+    text-align: center;
+    position: absolute;
+    font-size: 12px;
+    font-family: Source Code Pro;
+    font-weight: 300;
+    color: #ffffff;
+    top: 250px;
+    width: 100%;
+    height: 15px;
+  }
+  .bold {
+  	font-weight: 700;
+  	font-size: 17px;
+  }
+  .cover {
+  	position: relative;
+    display: block;
+    margin: auto;
+    text-align: center;
+    width: auto;
+    min-width: 190px;
+    max-width: 250px;
+    height: 200px;
+    border: 7px solid #2196F3;
+    background: #323232;
+    overflow: hidden;
+    border-radius: 7px;
+  }
+  .playtoggle {
+    position: relative;
+    display: block;
+    margin: auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    cursor: pointer;
+    background-color: #ccc;
+    transition: .4s;
+  }
+  .back {
+  	position: relative;
+    display: block;
+    bottom: 73px;
+    right: 83px;
+    margin: auto;
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+    transition: .4s;
+    background: #ddd;
+    text-align: center;
+    border-radius: 100px;
+  }
+  .skip {
+  	position: relative;
+    display: block;
+    bottom: 137px;
+    left: 83px;
+    margin: auto;
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+    transition: .4s;
+    background: #ddd;
+    text-align: center;
+    border-radius: 100px;
+  }
+  .repeat {
+  	position: relative;
+    display: block;
+    bottom: 213px;
+    left: 150px;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: .4s;
+    background: #ddd;
+    text-align: center;
+    border-radius: 100px;
+  }
+  .shuffle {
+  	position: relative;
+    display: block;
+    bottom: 283px;
+    right: 150px;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: .4s;
+    background: #ddd;
+    text-align: center;
+    border-radius: 100px;
+  }
+  .play input { 
+    visibility: hidden;
+  }
+  input:checked + .playtoggle {
+    background-color: #2196F3;
+  }
+  input:checked + .repeat {
+    background-color: #2196F3;
+  }
+  input:checked + .shuffle {
+    background-color: #2196F3;
+  }
+  .button {
+    position: relative;
+    display: block;
+    margin: auto;
+    left: -65px;
+    width: 0px;
+    height: 0px;
+    top: 5px;
+  }
+  .button input { 
+    visibility: hidden;
+  }
+  .bslider {
+    position: relative;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+    background-color: #ccc;
+    transition: .4s;
+    width: 130px;
+    height: 8px;
+    border-radius: 34px;
+    top: 5px;
+  }
+  .bslider:before {
+    position: relative;
+    display: block;
+    margin: auto;
+    content: "";
+    height: 17px;
+    width: 17px;
+    bottom: 5px;
+    right: 50px;
+    background-color: gray;
+    -webkit-transition: .4s;
+    transition: .7s;
+    border-radius: 50%;
+  }
+  input:checked + .bslider {
+    background-color: #2196F3;
+  }
+  input:focus + .bslider {
+    box-shadow: 0 0 1px #ffffff;
+  }
+  input:checked + .bslider:before {
+    -webkit-transform: translateX(100px);
+    -ms-transform: translateX(100px);
+    transform: translateX(100px);
+  }
+  * {
+      margin: 0;
+      padding: 0;
+    }
+
+  .progress {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-size: 15px;
+    font-family: Source Code Pro;
+    font-weight: 300;
+    position: relative;
+    border: 0px solid red;
+    margin: auto;
+    width: 70%;
+    max-width: 650px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+  }
+  .progress-bar {
+    position: relative;
+    width: 80%;
+    height: 8px;
+    background-color: #eee;
+    vertical-align: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .now {
+    position: absolute;
+    left: 0;
+    width: 70%;
+    display: inline-block;
+    height: 8px;
+    background: #2196F3;
+    border-radius: 10px 0px 0px 10px;
+  }
+
+  .now::after {
+    content: '';
+    position: absolute;
+    left: 97%;
+    height: 17px;
+    width: 17px;
+    background-color: gray;
+    border-radius: 17px;
+    top: -4px;
   }
 </style>
 <body>
+<div class="controls">
   <div class="musicplayer">
+    <span id="songCover"></span>
+    <span id="songName" class="songname"></span>
+    <span id="songArtist" class="songartist"></span>
+    <br><br><br>
+    <div class="progressalign">
+      <div class="progress">
+          <span class="start"></span>
+          <div class="progress-bar">
+              <div class="now"></div>
+          </div>
+          <span class="end"></span>
+      </div>
+    </div>
     <label class="play">
       <input type="checkbox" id="musicToggle" onclick="musicPlayer()">
-      <span class="playtoggle"><img src="assets/equalizer.gif" alt="" style="width:90px; height:90px; border-radius: 90px; object-fit: cover;"></span>
+      <span class="playtoggle"><img src="https://tresre.dev/music/assets/equalizer.gif" alt="" style="width:80px; height:80px; border-radius: 80px; object-fit: cover;"></span>
     </label>
     <label class="button">
       <input class="bslider" type="checkbox" id="musicMute" onclick="musicVolume()" checked>
       <span class="bslider"></span>
     </label>
-    <h1 class="vibing">What I'm Vibing</h1>
-    <span id="songChoice" class="songname" onclick="chooseSong(1)" style="cursor: pointer;"></span>
+    <span class="back" onclick="musicBack()"><img src="https://tresre.dev/music/assets/arrows.png" alt="" style="width:50px; height:50px; object-fit: cover; cursor: pointer; padding-bottom: 7px; padding-left: 7px; transform: rotate(180deg);"></span>
+    <span class="skip" onclick="chooseSong(1)"><img src="https://tresre.dev/music/assets/arrows.png" alt="" style="width:50px; height:50px; object-fit: cover; cursor: pointer; padding-top: 7px; padding-left: 7px;"></span>
+    
+    <label class="play">
+      <input type="checkbox" id="musicRepeat" onclick="musicRepeat()">
+      <span class="repeat"><img src="https://tresre.dev/music/assets/repeat.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 10px;"></span>
+    </label>
+    
+    <label class="play">
+      <input type="checkbox" id="musicShuffle" onclick="musicShuffle()">
+      <span class="shuffle"><img src="https://tresre.dev/music/assets/shuffle.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 10px;"></span>
+    </label>
   </div>
+  
+</div>
 
-<script src="assets/js/player.js"></script>
+
+<script>
+var music;
+var songChoice;
+var shuffleChoice;
+var playedSongs = [];
+var dupeSongs = [];
+var playlist = [
+  "All_About_You$The_Knocks",
+  "All_Alone$Fun",
+  "Bitter_Sweet_Symphony$The_Verve",
+  "Gotta_Get_Up$Harry_Nilsson",
+  "Hallucinations$PVRIS",
+  "Heat_Waves$Glass_Animals",
+  "Levitating$Dua_Lipa",
+  "Live_In_The_Moment$Portugal",
+  "Nice_To_Meet_Ya$Niall_Horan",
+  "No_Rest_For_The_Wicked$Cage_The_Elephant",
+  "Only_Human$Jonas_Brothers",
+  "Parking_Lot_View$Almost_Monday",
+  "Sunflower$Post_Malone",
+  "Talk$Two_Door_Cinema",
+  "Thunder$SHAED"
+  ];
+chooseSong(0);
+
+function chooseSong(p) {
+  var lastSong = songChoice;
+
+  if (document.getElementById("musicShuffle").checked == true) {
+  	var randomItem = playlist[Math.floor(Math.random()*playlist.length)];
+  } else {
+  	var lastIndex = playlist.indexOf(lastSong);
+    var nextIndex = ++lastIndex;
+    console.log(lastIndex + " " + nextIndex + " " + lastSong);
+    if (nextIndex >= playlist.length) {
+        nextIndex = 0;
+        dupeSongs = [];
+    }
+    if (lastIndex == undefined) {
+    	var randomItem = playlist[0];
+    } else {
+    	var randomItem = playlist[nextIndex];
+    }
+  }
+  
+  var setmusic = music;
+  if (setmusic !== undefined) {
+  	setmusic.pause();
+  }
+  
+  if (lastSong === randomItem) {
+    chooseSong(1);
+    return;
+  } else {
+    songChoice = randomItem;
+    
+    if (dupeSongs.includes(songChoice) === true) {
+      chooseSong(1);
+      if (dupeSongs.length >= playlist.length) {
+        dupeSongs = [];
+      }
+      return;
+    } else {
+      const splitSong = songChoice.split("$");
+      songName = splitSong[0];
+      songName = songName.replace(/_/g, " ");
+      songArtist = splitSong[1];
+      songArtist = songArtist.replace(/_/g, " ");
+      document.getElementById("songName").innerHTML = songName;
+      console.log(songName);
+      document.getElementById("songArtist").innerHTML = songArtist;
+      console.log(songArtist);
+      music = new Audio('https://tresre.dev/music/assets/mp3/' + randomItem + '.mp3');
+      document.getElementById("songCover").innerHTML = "<img src='https://tresre.dev/music/assets/covers/" + randomItem + ".png' style='height: 200px;' class='cover'>";
+      dupeSongs.push(songChoice);
+	  playedSongs.push(songChoice);
+      console.log(playedSongs);
+  	  console.log(dupeSongs);
+      
+      startBar();
+      
+      if (window[songChoice] == undefined) {
+  	    window[songChoice] = 0;
+      }
+      window[songChoice] = ++window[songChoice];
+      console.log(songChoice + ' - ' + window[songChoice]); 
+      
+      music.onended = function() {
+      	if (document.getElementById("musicRepeat").checked == true) {
+          if (document.getElementById("musicToggle").checked == true) {
+            music.play();
+            music.currentTime = 0;
+            window[songChoice] = ++window[songChoice];
+     		console.log(songChoice + ' - ' + window[songChoice]); 
+          }
+          if (document.getElementById("musicMute").checked == true) {
+            music.muted = false;
+          } else {
+            music.muted = true;
+          }
+        } else {
+      	  chooseSong(1);
+        }
+      };
+
+      if (p === 1) {
+        if (document.getElementById("musicToggle").checked == true) {
+          music.play();
+          music.currentTime = 0;
+        }
+        if (document.getElementById("musicMute").checked == true) {
+          music.muted = false;
+        } else {
+          music.muted = true;
+        }
+      }
+    }
+  }
+}
+
+function musicBack() {
+  var currentSong = songChoice;
+  
+  
+  
+  if (document.getElementById("musicShuffle").checked == true) {
+    if (playedSongs.length > 1) {
+    	var lastIndex = --playedSongs.length;
+    	var nextIndex = --lastIndex;
+    	var randomItem = playedSongs[nextIndex];
+    } else {
+		var randomItem = playedSongs[0];
+        return;
+    }
+  } else {
+  	var lastIndex = playlist.indexOf(currentSong);
+    var nextIndex = --lastIndex;
+    dupeSongs.splice(lastIndex, 1);
+    if (nextIndex < 0) {
+        var nextIndex = playlist.length;
+        --nextIndex;
+        dupeSongs = [];
+    }
+    if (lastIndex == undefined) {
+    	var randomItem = playlist[0];
+    } else {
+    	var randomItem = playlist[nextIndex];
+    }
+  }
+  
+  console.log(playedSongs);
+  console.log(dupeSongs);
+  songChoice = randomItem;
+  
+  var setmusic = music;
+  if (setmusic !== undefined) {
+  	setmusic.pause();
+  }
+  
+  var splitpre = String(songChoice);
+  const splitSong = splitpre.split("$");
+  songName = splitSong[0];
+  songName = songName.replace(/_/g, " ");
+  songArtist = splitSong[1];
+  songArtist = songArtist.replace(/_/g, " ");
+  document.getElementById("songName").innerHTML = songName;
+  console.log(songName);
+  document.getElementById("songArtist").innerHTML = songArtist;
+  console.log(songArtist);
+  music = new Audio('https://tresre.dev/music/assets/mp3/' + randomItem + '.mp3');
+  document.getElementById("songCover").innerHTML = "<img src='https://tresre.dev/music/assets/covers/" + randomItem + ".png' style='height: 200px;' class='cover'>";
+      
+  startBar();
+      
+  if (window[songChoice] == undefined) {
+    window[songChoice] = 0;
+  }
+  window[songChoice] = ++window[songChoice];
+  console.log(songChoice + ' - ' + window[songChoice]); 
+    
+  music.onended = function() {
+    if (document.getElementById("musicRepeat").checked == true) {
+      if (document.getElementById("musicToggle").checked == true) {
+        music.play();
+        music.currentTime = 0;
+        window[songChoice] = ++window[songChoice];
+        console.log(songChoice + ' - ' + window[songChoice]); 
+      }
+      if (document.getElementById("musicMute").checked == true) {
+        music.muted = false;
+      } else {
+        music.muted = true;
+      }
+    } else {
+      chooseSong(1);
+    }
+  };
+
+  if (document.getElementById("musicToggle").checked == true) {
+     music.play();
+    music.currentTime = 0;
+  }
+  if (document.getElementById("musicMute").checked == true) {
+    music.muted = false;
+  } else {
+    music.muted = true;
+  }
+}
+
+
+
+function musicShuffle() {
+    if (document.getElementById("musicShuffle").checked == true) {
+    	if (document.getElementById("musicToggle").checked == true) {
+          playedSongs = [];
+		  dupeSongs = [];
+          chooseSong(1);
+        } else {
+          playedSongs = [];
+		  dupeSongs = [];
+    	  chooseSong(0);
+        }
+    }
+}
+
+function musicVolume(vol) {
+  var checkBox = document.getElementById("musicMute");
+  var setmusic = music;
+  if (vol === undefined) {
+  	if (checkBox.checked == true) {
+      setmusic.muted = false;
+    } else {
+      setmusic.muted = true;
+    }
+  } else {
+    setmusic.muted = false;
+    setmusic.volume = vol;
+  }
+}
+
+function musicPlayer() {
+  var checkBox = document.getElementById("musicToggle");
+  var setmusic = music;
+  if (checkBox.checked == true) {
+    setmusic.play();
+  } else {
+    setmusic.pause();
+  }
+}
+
+function startBar () {
+const start = document.querySelector('.start');
+const end = document.querySelector('.end');
+const progressBar = document.querySelector('.progress-bar');
+const now = document.querySelector('.now');
+
+function conversion (value) {
+    let minute = Math.floor(value / 60)
+    minute = minute.toString().length === 1 ? ('0' + minute) : minute
+    let second = Math.round(value % 60)
+    second = second.toString().length === 1 ? ('0' + second) : second
+    return `${minute}:${second}`
+}
+
+music.onloadedmetadata = function () {
+    end.innerHTML = conversion(music.duration)
+    start.innerHTML = conversion(music.currentTime)
+}
+
+progressBar.addEventListener('click', function (event) {
+    let coordStart = this.getBoundingClientRect().left
+    let coordEnd = event.pageX
+    let p = (coordEnd - coordStart) / this.offsetWidth
+    now.style.width = p.toFixed(3) * 100 + '%'
+
+    music.currentTime = p * music.duration
+    
+})
+  
+setInterval(() => {
+  start.innerHTML = conversion(music.currentTime)
+  now.style.width = music.currentTime / music.duration.toFixed(3) * 100 + '%'
+}, 1000)
+}
+</script>
 
 </body>
 </html>
