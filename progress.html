@@ -651,18 +651,6 @@ navigator.mediaSession.setActionHandler('pause', function() {
   sessionToggle();
 });
 
-const defaultSkipTime = 5;
-
-navigator.mediaSession.setActionHandler('seekbackward', (details) => {
-  const skipTime = details.seekOffset || defaultSkipTime;
-  music.currentTime = Math.max(music.currentTime - skipTime, 0);
-});
-
-navigator.mediaSession.setActionHandler('seekforward', (details) => {
-  const skipTime = details.seekOffset || defaultSkipTime;
-  music.currentTime = Math.min(music.currentTime + skipTime, music.duration);
-});
-
 function sessionToggle() {
   var checkBox = document.getElementById("musicToggle");
   var setmusic = music;
