@@ -570,6 +570,40 @@ setInterval(() => {
   now.style.width = music.currentTime / music.duration.toFixed(3) * 100 + '%'
 }, 1000)
 }
+
+
+navigator.mediaSession.setActionHandler('nexttrack', function() {
+  console.log('User clicked "Next Track" icon.');
+  chooseSong(1);
+});
+
+navigator.mediaSession.setActionHandler('previoustrack', function() {
+  console.log('User clicked "Previous Track" icon.');
+  musicBack();
+});
+
+navigator.mediaSession.setActionHandler('play', async function() {
+  console.log('User clicked "Play" icon.');
+  sessionToggle();
+});
+
+navigator.mediaSession.setActionHandler('pause', function() {
+  console.log('User clicked "Pause" icon.');
+  sessionToggle();
+});
+
+function sessionToggle() {
+  var checkBox = document.getElementById("musicToggle");
+  var setmusic = music;
+  if (checkBox.checked == true) {
+  	document.getElementById("musicToggle").checked = false;
+    setmusic.pause();
+  } else {
+  	document.getElementById("musicToggle").checked = true;
+    setmusic.play();
+  }
+}
+
 </script>
 
 </body>
