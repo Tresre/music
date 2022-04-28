@@ -572,6 +572,16 @@ setInterval(() => {
 }
 
 
+navigator.mediaSession.setActionHandler('nexttrack', function() {
+  console.log('User clicked "Next Track" icon.');
+  chooseSong(1);
+});
+
+navigator.mediaSession.setActionHandler('previoustrack', function() {
+  console.log('User clicked "Previous Track" icon.');
+  musicBack();
+});
+
 navigator.mediaSession.setActionHandler('play', async function() {
   console.log('> User clicked "Play" icon.');
   sessionToggle();
