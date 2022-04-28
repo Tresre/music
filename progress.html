@@ -359,6 +359,7 @@ function chooseSong(p) {
       music = new Audio('https://tresre.dev/music/assets/mp3/' + randomItem + '.mp3');
       document.title = songName + " - " + songArtist;
       document.getElementById("songCover").innerHTML = "<img src='https://tresre.dev/music/assets/covers/" + randomItem + ".png' style='height: 200px;' class='cover'>";
+      updateMetadata();
       dupeSongs.push(songChoice);
 	  playedSongs.push(songChoice);
       console.log(playedSongs);
@@ -604,18 +605,23 @@ function sessionToggle() {
   }
 }
 
-if ('mediaSession' in navigator) {
+function updateMetadata() {
+  const splitSong = songChoice.split("$");
+  songName = splitSong[0];
+  songName = songName.replace(/_/g, " ");
+  songArtist = splitSong[1];
+  songArtist = songArtist.replace(/_/g, " ");
+  
   navigator.mediaSession.metadata = new MediaMetadata({
-    title: 'Test Song',
-    artist: 'Cool Artist',
-    album: 'Interesting Album',
+    title: songName,
+    artist: songArtist,
     artwork: [
-      { src: 'https://tresre.dev/music/assets/covers/All_Alone$Fun.png',   sizes: '96x96',   type: 'image/png' },
-      { src: 'https://tresre.dev/music/assets/covers/All_Alone$Fun.png', sizes: '128x128', type: 'image/png' },
-      { src: 'https://tresre.dev/music/assets/covers/All_Alone$Fun.png', sizes: '192x192', type: 'image/png' },
-      { src: 'https://tresre.dev/music/assets/covers/All_Alone$Fun.png', sizes: '256x256', type: 'image/png' },
-      { src: 'https://tresre.dev/music/assets/covers/All_Alone$Fun.png', sizes: '384x384', type: 'image/png' },
-      { src: 'https://tresre.dev/music/assets/covers/All_Alone$Fun.png', sizes: '512x512', type: 'image/png' },
+      { src: 'https://tresre.dev/music/assets/covers/' + songChoice + '.png',   sizes: '96x96',   type: 'image/png' },
+      { src: 'https://tresre.dev/music/assets/covers/' + songChoice + '.png', sizes: '128x128', type: 'image/png' },
+      { src: 'https://tresre.dev/music/assets/covers/' + songChoice + '.png', sizes: '192x192', type: 'image/png' },
+      { src: 'https://tresre.dev/music/assets/covers/' + songChoice + '.png', sizes: '256x256', type: 'image/png' },
+      { src: 'https://tresre.dev/music/assets/covers/' + songChoice + '.png', sizes: '384x384', type: 'image/png' },
+      { src: 'https://tresre.dev/music/assets/covers/' + songChoice + '.png', sizes: '512x512', type: 'image/png' },
     ]
   });
 }
