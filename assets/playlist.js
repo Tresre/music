@@ -1,4 +1,4 @@
-playlist = [];
+var playlist = [];
 setPlaylist("pop");
 
 function setPlaylist(playlistChoice) {
@@ -10,7 +10,7 @@ function setPlaylist(playlistChoice) {
   var playedSongs = [];
   var dupeSongs = [];
   console.log("pop loaded");
-  var playlist = [
+  playlist = [
     "All_About_You$The_Knocks",
     "All_Alone$Fun",
     "Bitter_Sweet_Symphony$The_Verve",
@@ -28,7 +28,7 @@ function setPlaylist(playlistChoice) {
     "Thunder$SHAED"
   ];
   if (playlistChoice === "country") {
-    var playlist = [
+    playlist = [
       "",
       "",
       "",
@@ -47,7 +47,7 @@ function setPlaylist(playlistChoice) {
     ];
   }
   if (playlistChoice === "electronic") {
-    var playlist = [
+    playlist = [
       "",
       "",
       "",
@@ -66,7 +66,7 @@ function setPlaylist(playlistChoice) {
     ];
   }
   if (playlistChoice === "rock") {
-    var playlist = [
+    playlist = [
       "",
       "",
       "",
