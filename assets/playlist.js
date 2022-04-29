@@ -1,9 +1,7 @@
-defaultPlaylist = "pop";
-
 function setPlaylist(playlistChoice) {
   console.log("choice " + playlistChoice);
   if (playlistChoice == undefined) {
-    setPlaylist(defaultPlaylist);
+    setPlaylist("pop");
     return;
   }
   if (music !== undefined) {
