@@ -15,7 +15,7 @@ var playlist = [
     "Talk$Two_Door_Cinema",
     "Thunder$SHAED"
   ];
-console.log("playlist loaded");
+setPlaylist("pop");
 
 function setPlaylist(playlistChoice) {
   if (music !== undefined) {
