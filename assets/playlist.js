@@ -1,3 +1,4 @@
+console.log("playlist loaded");
 var playlist = [];
 setPlaylist("pop");
 
@@ -7,6 +8,7 @@ function setPlaylist(playlistChoice) {
   var playedSongs = [];
   var dupeSongs = [];
   if (playlistChoice === "pop") {
+    console.log("pop loaded");
     var playlist = [
       "All_About_You$The_Knocks",
       "All_Alone$Fun",
