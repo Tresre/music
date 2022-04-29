@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+<!-- IOS PWA -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="https://tresre.dev/music/assets/img/icon.png">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="TresMusic">
+
+<link href="assets/splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+<link href="assets/splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+<link href="assets/splashscreens/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+<link href="assets/splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+<link href="assets/splashscreens/iphonexr_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+<link href="assets/splashscreens/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+<link href="assets/splashscreens/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+<link href="assets/splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+<link href="assets/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+<link href="assets/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+<!-- IOS PWA -->
+
 <style>
   @import url(https://fonts.googleapis.com/css2?family=Source+Code+Pro);
   html {
     background-color: #1e1e1e;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
   }
   .controls {
   	position: absolute;
@@ -73,6 +95,13 @@
     background-color: #ccc;
     transition: .4s;
   }
+  .playtoggle:hover {
+	filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.35));
+	transform: scale(1.05);
+  }
+  .playtoggle:active {
+	transform: scale(0.95);
+  }
   .back {
   	position: relative;
     display: block;
@@ -101,6 +130,20 @@
     text-align: center;
     border-radius: 100px;
   }
+  .skip:hover {
+	filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.35));
+	transform: scale(1.05);
+  }
+  .skip:active {
+	transform: scale(0.95);
+  }
+  .back:hover {
+	filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.35));
+	transform: scale(1.05);
+  }
+  .back:active {
+	transform: scale(0.95);
+  }
   .repeat {
   	position: relative;
     display: block;
@@ -115,6 +158,13 @@
     text-align: center;
     border-radius: 100px;
   }
+  .repeat:hover {
+	filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.35));
+	transform: scale(1.05);
+  }
+  .repeat:active {
+	transform: scale(0.95);
+  }
   .shuffle {
   	position: relative;
     display: block;
@@ -128,6 +178,13 @@
     background: #ddd;
     text-align: center;
     border-radius: 100px;
+  }
+  .shuffle:hover {
+	filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.35));
+	transform: scale(1.05);
+  }
+  .shuffle:active {
+	transform: scale(0.95);
   }
   .play input { 
     visibility: hidden;
@@ -243,7 +300,7 @@
     top: -4px;
   }
 </style>
-<body>
+<body ontouchstart="">
 <div class="controls">
   <div class="musicplayer">
     <span id="songCover"></span>
@@ -261,62 +318,48 @@
     </div>
     <label class="play">
       <input type="checkbox" id="musicToggle" onclick="musicPlayer()">
-      <span class="playtoggle"><img src="https://tresre.dev/music/assets/equalizer.gif" alt="" style="width:80px; height:80px; border-radius: 80px; object-fit: cover;"></span>
+      <span class="playtoggle"><img src="https://tresre.dev/music/assets/img/equalizer.gif" alt="" style="width:80px; height:80px; border-radius: 80px; object-fit: cover;"></span>
     </label>
     <label class="button">
       <input class="bslider" type="checkbox" id="musicMute" onclick="musicVolume()" checked>
       <span class="bslider"></span>
     </label>
-    <span class="back" onclick="musicBack()"><img src="https://tresre.dev/music/assets/arrows.png" alt="" style="width:50px; height:50px; object-fit: cover; cursor: pointer; padding-bottom: 7px; padding-left: 7px; transform: rotate(180deg);"></span>
-    <span class="skip" onclick="chooseSong(1)"><img src="https://tresre.dev/music/assets/arrows.png" alt="" style="width:50px; height:50px; object-fit: cover; cursor: pointer; padding-top: 7px; padding-left: 7px;"></span>
+    <span class="back" onclick="musicBack()"><img src="https://tresre.dev/music/assets/img/arrows.png" alt="" style="width:50px; height:50px; object-fit: cover; cursor: pointer; padding-bottom: 7px; padding-left: 7px; transform: rotate(180deg);"></span>
+    <span class="skip" onclick="chooseSong(1)"><img src="https://tresre.dev/music/assets/img/arrows.png" alt="" style="width:50px; height:50px; object-fit: cover; cursor: pointer; padding-top: 7px; padding-left: 7px;"></span>
     
     <label class="play">
       <input type="checkbox" id="musicRepeat" onclick="musicRepeat()">
-      <span class="repeat"><img src="https://tresre.dev/music/assets/repeat.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 10px;"></span>
+      <span class="repeat"><img src="https://tresre.dev/music/assets/img/repeat.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 10px;"></span>
     </label>
     
     <label class="play">
       <input type="checkbox" id="musicShuffle" onclick="musicShuffle()">
-      <span class="shuffle"><img src="https://tresre.dev/music/assets/shuffle.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 10px;"></span>
+      <span class="shuffle"><img src="https://tresre.dev/music/assets/img/shuffle.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 10px;"></span>
     </label>
   </div>
   
 </div>
 
+<script src="https://tresre.dev/music/assets/playlist.js"></script>
 
 <script>
 var music;
 var songChoice;
 var shuffleChoice;
+var playlist = [];
 var playedSongs = [];
 var dupeSongs = [];
-var playlist = [
-  "All_About_You$The_Knocks",
-  "All_Alone$Fun",
-  "Bitter_Sweet_Symphony$The_Verve",
-  "Gotta_Get_Up$Harry_Nilsson",
-  "Hallucinations$PVRIS",
-  "Heat_Waves$Glass_Animals",
-  "Levitating$Dua_Lipa",
-  "Live_In_The_Moment$Portugal",
-  "Nice_To_Meet_Ya$Niall_Horan",
-  "No_Rest_For_The_Wicked$Cage_The_Elephant",
-  "Only_Human$Jonas_Brothers",
-  "Parking_Lot_View$Almost_Monday",
-  "Sunflower$Post_Malone",
-  "Talk$Two_Door_Cinema",
-  "Thunder$SHAED"
-  ];
-chooseSong(0);
+setPlaylist();
 
 function chooseSong(p) {
   var lastSong = songChoice;
 
   if (document.getElementById("musicShuffle").checked == true) {
-  	var randomItem = playlist[Math.floor(Math.random()*playlist.length)];
+    var randomItem = playlist[Math.floor(Math.random()*playlist.length)];
   } else {
-  	var lastIndex = playlist.indexOf(lastSong);
-    var nextIndex = ++lastIndex;
+    var lastIndex = playlist.indexOf(lastSong);
+    var nextIndex = lastIndex;
+    ++nextIndex;
     console.log(lastIndex + " " + nextIndex + " " + lastSong);
     if (nextIndex >= playlist.length) {
         nextIndex = 0;
