@@ -13,7 +13,7 @@ function setPlaylist(playlistChoice) {
   
   if (playlistChoice == "pop") {
     console.log("pop loaded");
-    var playlist = [
+    playlist = [
       "All_About_You$The_Knocks",
       "All_Alone$Fun",
       "Bitter_Sweet_Symphony$The_Verve",
@@ -34,7 +34,7 @@ function setPlaylist(playlistChoice) {
   
   if (playlistChoice == "country") {
     console.log("country loaded");
-    var playlist = [
+    playlist = [
       "",
       "",
       "",
@@ -55,7 +55,7 @@ function setPlaylist(playlistChoice) {
   
   if (playlistChoice == "electronic") {
     console.log("electronic loaded");
-    var playlist = [
+    playlist = [
       "",
       "",
       "",
@@ -76,7 +76,7 @@ function setPlaylist(playlistChoice) {
   
   if (playlistChoice == "rock") {
     console.log("rock loaded");
-    var playlist = [
+    playlist = [
       "",
       "",
       "",
