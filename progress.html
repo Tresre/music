@@ -358,9 +358,6 @@ function chooseSong(p) {
     var randomItem = playlist[Math.floor(Math.random()*playlist.length)];
   } else {
     var lastIndex = playlist.indexOf(lastSong);
-    if (lastIndex == undefined) {
-      var lastIndex = -1;
-    }
     var nextIndex = lastIndex;
     ++nextIndex;
     console.log(lastIndex + " " + nextIndex + " " + lastSong);
