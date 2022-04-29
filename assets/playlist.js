@@ -27,7 +27,7 @@ function setPlaylist(playlistChoice) {
       "Thunder$SHAED"
     ];
   }
-  if (playlistChoice === "country" {
+  if (playlistChoice === "country") {
     var playlist = [
       "",
       "",
@@ -46,7 +46,7 @@ function setPlaylist(playlistChoice) {
       ""
     ];
   }
-  if (playlistChoice === "electronic" {
+  if (playlistChoice === "electronic") {
     var playlist = [
       "",
       "",
@@ -65,7 +65,7 @@ function setPlaylist(playlistChoice) {
       ""
     ];
   }
-  if (playlistChoice === "rock" {
+  if (playlistChoice === "rock") {
     var playlist = [
       "",
       "",
