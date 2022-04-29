@@ -11,7 +11,7 @@ function setPlaylist(playlistChoice) {
   var playedSongs = [];
   var dupeSongs = [];
   
-  if (playlistChoice === "pop") {
+  if (playlistChoice == "pop") {
     console.log("pop loaded");
     var playlist = [
       "All_About_You$The_Knocks",
@@ -32,7 +32,7 @@ function setPlaylist(playlistChoice) {
     ];
   }
   
-  if (playlistChoice === "country") {
+  if (playlistChoice == "country") {
     console.log("country loaded");
     var playlist = [
       "",
@@ -53,7 +53,7 @@ function setPlaylist(playlistChoice) {
     ];
   }
   
-  if (playlistChoice === "electronic") {
+  if (playlistChoice == "electronic") {
     console.log("electronic loaded");
     var playlist = [
       "",
@@ -74,7 +74,7 @@ function setPlaylist(playlistChoice) {
     ];
   }
   
-  if (playlistChoice === "rock") {
+  if (playlistChoice == "rock") {
     console.log("rock loaded");
     var playlist = [
       "",
