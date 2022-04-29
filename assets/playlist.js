@@ -1,6 +1,8 @@
+var playlist = [];
 setPlaylist("pop");
 
 function setPlaylist(playlistChoice) {
+  console.log("choice " + playlistChoice);
   if (music !== undefined) {
     var setmusic = music;
     setmusic.pause();
