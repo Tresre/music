@@ -1,6 +1,10 @@
 setPlaylist("pop");
 
 function setPlaylist(p) {
+  var setmusic = music;
+  setmusic.pause();
+  var playedSongs = [];
+  var dupeSongs = [];
   if (p === "pop") {
     var playlist = [
       "All_About_You$The_Knocks",
@@ -77,4 +81,5 @@ function setPlaylist(p) {
       ""
     ];
   }
+  chooseSong(0);
 }
