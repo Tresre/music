@@ -1,3 +1,4 @@
+var playlist = [];
 setPlaylist("pop");
 
 function setPlaylist(playlistChoice) {
