@@ -355,10 +355,14 @@ function chooseSong(p) {
   var lastSong = songChoice;
 
   if (document.getElementById("musicShuffle").checked == true) {
-  	var randomItem = playlist[Math.floor(Math.random()*playlist.length)];
+    var randomItem = playlist[Math.floor(Math.random()*playlist.length)];
   } else {
-  	var lastIndex = playlist.indexOf(lastSong);
-    var nextIndex = ++lastIndex;
+    var lastIndex = playlist.indexOf(lastSong);
+    if (lastIndex == undefined) {
+      var lastIndex = -1;
+    }
+    var nextIndex = lastIndex;
+    ++nextIndex;
     console.log(lastIndex + " " + nextIndex + " " + lastSong);
     if (nextIndex >= playlist.length) {
         nextIndex = 0;
