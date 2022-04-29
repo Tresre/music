@@ -1,11 +1,11 @@
 setPlaylist("pop");
 
-function setPlaylist(p) {
+function setPlaylist(playlistChoice) {
   var setmusic = music;
   setmusic.pause();
   var playedSongs = [];
   var dupeSongs = [];
-  if (p === "pop") {
+  if (playlistChoice === "pop") {
     var playlist = [
       "All_About_You$The_Knocks",
       "All_Alone$Fun",
@@ -24,7 +24,7 @@ function setPlaylist(p) {
       "Thunder$SHAED"
     ];
   }
-  if (p === "country" {
+  if (playlistChoice === "country" {
     var playlist = [
       "",
       "",
@@ -43,7 +43,7 @@ function setPlaylist(p) {
       ""
     ];
   }
-  if (p === "electronic" {
+  if (playlistChoice === "electronic" {
     var playlist = [
       "",
       "",
@@ -62,7 +62,7 @@ function setPlaylist(p) {
       ""
     ];
   }
-  if (p === "rock" {
+  if (playlistChoice === "rock" {
     var playlist = [
       "",
       "",
