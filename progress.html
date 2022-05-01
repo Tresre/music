@@ -613,8 +613,9 @@ function musicVolume(vol) {
 
 function volumeUp() {
   setTimeout(function() {
-    music.volume += 0.1;
-    if (music.volume < 1) {
+  	console.log(music.volume);
+    if (music.volume < 0.99) {
+      music.volume += 0.1;
       volumeUp();
     } else {
       music.volume = 1;
@@ -624,8 +625,9 @@ function volumeUp() {
 
 function volumeDown() {
   setTimeout(function() {
-    music.volume -= 0.1;
-    if (music.volume > 0) {
+  	console.log(music.volume);
+    if (music.volume > 0.01) {
+      music.volume -= 0.1;
       volumeDown();
     } else {
       music.volume = 0;
