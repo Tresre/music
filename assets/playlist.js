@@ -13,6 +13,10 @@ function setPlaylist(playlistChoice) {
   
   if (playlistChoice == "pop") {
     console.log("pop loaded");
+    document.getElementById("playlist1").checked = true;
+    document.getElementById("playlist2").checked = false;
+    document.getElementById("playlist3").checked = false;
+    document.getElementById("playlist4").checked = false;
     playlist = [
       "All_About_You$The_Knocks",
       "All_Alone$Fun",
@@ -34,64 +38,76 @@ function setPlaylist(playlistChoice) {
   
   if (playlistChoice == "country") {
     console.log("country loaded");
+    document.getElementById("playlist1").checked = false;
+    document.getElementById("playlist2").checked = true;
+    document.getElementById("playlist3").checked = false;
+    document.getElementById("playlist4").checked = false;
     playlist = [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e"
     ];
   }
   
   if (playlistChoice == "electronic") {
     console.log("electronic loaded");
+    document.getElementById("playlist1").checked = false;
+    document.getElementById("playlist2").checked = false;
+    document.getElementById("playlist3").checked = true;
+    document.getElementById("playlist4").checked = false;
     playlist = [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e"
     ];
   }
   
   if (playlistChoice == "rock") {
     console.log("rock loaded");
+    document.getElementById("playlist1").checked = false;
+    document.getElementById("playlist2").checked = false;
+    document.getElementById("playlist3").checked = false;
+    document.getElementById("playlist4").checked = true;
     playlist = [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e"
     ];
   }
   
