@@ -433,10 +433,6 @@ var playlist = [];
 var playedSongs = [];
 var dupeSongs = [];
 setPlaylist();
-document.getElementById("playlist1").checked = true;
-document.getElementById("playlist2").checked = false;
-document.getElementById("playlist3").checked = false;
-document.getElementById("playlist4").checked = false;
 
 
 function chooseSong(p) {
@@ -533,6 +529,8 @@ function chooseSong(p) {
         } else {
           music.muted = true;
         }
+      } else {
+      	document.getElementById("musicToggle").checked = false;
       }
     }
   }
