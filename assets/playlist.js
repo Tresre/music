@@ -68,21 +68,21 @@ function setPlaylist(playlistChoice) {
     document.getElementById("playlist3").checked = true;
     document.getElementById("playlist4").checked = false;
     playlist = [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
-      "11",
-      "12",
-      "13",
-      "14",
-      "15"
+      "AllttA$20syl",
+      "Atmospherica$Squiid",
+      "Bite_Your_Lips$Andrew_Applepie",
+      "Blue_Boi$Lakeyinspired",
+      "Calling_Me$Ooyy",
+      "Dansez$Fasion",
+      "Faidherbe_Square$ProleteR",
+      "Howling$Lupus_Nocte",
+      "Intersection$Syntheticmotion",
+      "Jackpot$TheFatRat",
+      "Shake_Down$Jules_Gaia",
+      "Time_Lapse$TheFatRat",
+      "Vibe_With_Me$Joakim_Karud",
+      "Will_You_Dance_With_Me$Lalinea",
+      "Your_Gain$Swif7"
     ];
   }
   
