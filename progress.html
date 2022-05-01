@@ -222,6 +222,9 @@
   input:checked + .speed {
     background-color: #2196F3;
   }
+  input:checked + .playlist {
+    background-color: #2196F3;
+  }
   .button {
     position: relative;
     display: block;
@@ -323,6 +326,37 @@
     border-radius: 17px;
     top: -4px;
   }
+  .playlist {
+  	position: relative;
+    display: block;
+    left: 0px;
+    bottom: 250px;
+    margin: auto;
+    width: 250px;
+    height: 40px;
+    cursor: pointer;
+    transition: .4s;
+    background: #ddd;
+    border-radius: 10px;
+    padding-left: 10px;
+  }
+  .playlist-text {
+  	text-align: center;
+    font-size: 20px;
+    font-family: Source Code Pro;
+    font-weight: 600;
+    color: #999999;
+    top: 7px;
+    position: absolute;
+    padding-left: 10px;
+  }
+  .playlist:hover {
+	filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.35));
+	transform: scale(1.05);
+  }
+  .playlist:active {
+	transform: scale(0.95);
+  }
 </style>
 <body ontouchstart="">
 <div class="controls">
@@ -365,7 +399,27 @@
       <input type="checkbox" id="musicSpeed" onclick="musicSpeed()">
       <span class="speed"><img src="https://tresre.dev/music/assets/img/speed.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 5px;"></span>
     </label>
-  </div>
+    
+    
+    <label class="play">
+      <input type="checkbox" id="playlist1" onclick="setPlaylist('pop')">
+      <span class="playlist"><img src="https://tresre.dev/music/assets/img/arrows.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 5px;"><a class="playlist-text">Pop Music</a></span>
+    </label>
+    
+    <label class="play">
+      <input type="checkbox" id="playlist2" onclick="setPlaylist('country')">
+      <span class="playlist"><img src="https://tresre.dev/music/assets/img/arrows.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 5px;"><a class="playlist-text">Country Music</a></span>
+    </label>
+    
+    <label class="play">
+      <input type="checkbox" id="playlist3" onclick="setPlaylist('electronic')">
+      <span class="playlist"><img src="https://tresre.dev/music/assets/img/arrows.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 5px;"><a class="playlist-text">Electronic Music</a></span>
+    </label>
+    
+    <label class="play">
+      <input type="checkbox" id="playlist4" onclick="setPlaylist('rock')">
+      <span class="playlist"><img src="https://tresre.dev/music/assets/img/arrows.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 5px;"><a class="playlist-text">Rock Music</a></span>
+    </label>
   
 </div>
 
@@ -379,6 +433,11 @@ var playlist = [];
 var playedSongs = [];
 var dupeSongs = [];
 setPlaylist();
+document.getElementById("playlist1").checked = true;
+document.getElementById("playlist2").checked = false;
+document.getElementById("playlist3").checked = false;
+document.getElementById("playlist4").checked = false;
+
 
 function chooseSong(p) {
   var lastSong = songChoice;
