@@ -43,21 +43,21 @@ function setPlaylist(playlistChoice) {
     document.getElementById("playlist3").checked = false;
     document.getElementById("playlist4").checked = false;
     playlist = [
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e"
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
     ];
   }
   
@@ -68,21 +68,21 @@ function setPlaylist(playlistChoice) {
     document.getElementById("playlist3").checked = true;
     document.getElementById("playlist4").checked = false;
     playlist = [
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e"
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
     ];
   }
   
@@ -93,21 +93,21 @@ function setPlaylist(playlistChoice) {
     document.getElementById("playlist3").checked = false;
     document.getElementById("playlist4").checked = true;
     playlist = [
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e",
-      "e"
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
     ];
   }
   
