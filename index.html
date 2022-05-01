@@ -186,6 +186,27 @@
   .shuffle:active {
 	transform: scale(0.95);
   }
+  .speed {
+  	position: relative;
+    display: block;
+    bottom: 510px;
+    left: 140px;
+    margin: auto;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: .4s;
+    background: #ddd;
+    text-align: center;
+    border-radius: 100px;
+  }
+  .speed:hover {
+	filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.35));
+	transform: scale(1.05);
+  }
+  .speed:active {
+	transform: scale(0.95);
+  }
   .play input { 
     visibility: hidden;
   }
@@ -196,6 +217,12 @@
     background-color: #2196F3;
   }
   input:checked + .shuffle {
+    background-color: #2196F3;
+  }
+  input:checked + .speed {
+    background-color: #2196F3;
+  }
+  input:checked + .playlist {
     background-color: #2196F3;
   }
   .button {
@@ -299,6 +326,37 @@
     border-radius: 17px;
     top: -4px;
   }
+  .playlist {
+  	position: relative;
+    display: block;
+    left: 0px;
+    bottom: 250px;
+    margin: auto;
+    width: 250px;
+    height: 40px;
+    cursor: pointer;
+    transition: .4s;
+    background: #ddd;
+    border-radius: 10px;
+    padding-left: 10px;
+  }
+  .playlist-text {
+  	text-align: center;
+    font-size: 20px;
+    font-family: Source Code Pro;
+    font-weight: 600;
+    color: #999999;
+    top: 7px;
+    position: absolute;
+    padding-left: 10px;
+  }
+  .playlist:hover {
+	filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.35));
+	transform: scale(1.05);
+  }
+  .playlist:active {
+	transform: scale(0.95);
+  }
 </style>
 <body ontouchstart="">
 <div class="controls">
@@ -336,7 +394,32 @@
       <input type="checkbox" id="musicShuffle" onclick="musicShuffle()">
       <span class="shuffle"><img src="https://tresre.dev/music/assets/img/shuffle.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 10px;"></span>
     </label>
-  </div>
+    
+    <label class="play">
+      <input type="checkbox" id="musicSpeed" onclick="musicSpeed()">
+      <span class="speed"><img src="https://tresre.dev/music/assets/img/speed.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 5px;"></span>
+    </label>
+    
+    
+    <label class="play">
+      <input type="checkbox" id="playlist1" onclick="setPlaylist('pop')">
+      <span class="playlist"><img src="https://tresre.dev/music/assets/img/arrows.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 5px;"><a class="playlist-text">Pop Music</a></span>
+    </label>
+    
+    <label class="play">
+      <input type="checkbox" id="playlist2" onclick="setPlaylist('country')">
+      <span class="playlist"><img src="https://tresre.dev/music/assets/img/arrows.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 5px;"><a class="playlist-text">Country Music</a></span>
+    </label>
+    
+    <label class="play">
+      <input type="checkbox" id="playlist3" onclick="setPlaylist('electronic')">
+      <span class="playlist"><img src="https://tresre.dev/music/assets/img/arrows.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 5px;"><a class="playlist-text">Electronic Music</a></span>
+    </label>
+    
+    <label class="play">
+      <input type="checkbox" id="playlist4" onclick="setPlaylist('rock')">
+      <span class="playlist"><img src="https://tresre.dev/music/assets/img/arrows.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 5px;"><a class="playlist-text">Rock Music</a></span>
+    </label>
   
 </div>
 
@@ -351,8 +434,10 @@ var playedSongs = [];
 var dupeSongs = [];
 setPlaylist();
 
+
 function chooseSong(p) {
   var lastSong = songChoice;
+  document.getElementById("musicSpeed").checked = false;
 
   if (document.getElementById("musicShuffle").checked == true) {
     var randomItem = playlist[Math.floor(Math.random()*playlist.length)];
@@ -444,6 +529,8 @@ function chooseSong(p) {
         } else {
           music.muted = true;
         }
+      } else {
+      	document.getElementById("musicToggle").checked = false;
       }
     }
   }
@@ -451,8 +538,7 @@ function chooseSong(p) {
 
 function musicBack() {
   var currentSong = songChoice;
-  
-  
+  document.getElementById("musicSpeed").checked = false;
   
   if (document.getElementById("musicShuffle").checked == true) {
     if (playedSongs.length > 1) {
@@ -556,19 +642,54 @@ function musicShuffle() {
     }
 }
 
+function musicSpeed() {
+	var setmusic = music;
+    if (setmusic.playbackRate > 1) {
+		setmusic.playbackRate = 1; 
+        setmusic.preservesPitch = true;
+    } else {
+    	setmusic.playbackRate = 1.25; 
+        setmusic.preservesPitch = false;
+	}
+}
+
 function musicVolume(vol) {
   var checkBox = document.getElementById("musicMute");
   var setmusic = music;
   if (vol === undefined) {
   	if (checkBox.checked == true) {
-      setmusic.muted = false;
+      volumeUp();
     } else {
-      setmusic.muted = true;
+      volumeDown();
     }
   } else {
     setmusic.muted = false;
     setmusic.volume = vol;
   }
+}
+
+function volumeUp() {
+  setTimeout(function() {
+    if (music.volume < 0.99) {
+      music.volume += 0.1;
+      volumeUp();
+    } else {
+      music.volume = 1;
+      return;
+    }
+  }, 10)
+}
+
+function volumeDown() {
+  setTimeout(function() {
+    if (music.volume > 0.01) {
+      music.volume -= 0.1;
+      volumeDown();
+    } else {
+      music.volume = 0;
+      return;
+    }
+  }, 10)
 }
 
 function musicPlayer() {
