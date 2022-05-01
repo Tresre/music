@@ -186,6 +186,27 @@
   .shuffle:active {
 	transform: scale(0.95);
   }
+  .speed {
+  	position: relative;
+    display: block;
+    bottom: 520px;
+    left: 150px;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: .4s;
+    background: #ddd;
+    text-align: center;
+    border-radius: 100px;
+  }
+  .speed:hover {
+	filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.35));
+	transform: scale(1.05);
+  }
+  .speed:active {
+	transform: scale(0.95);
+  }
   .play input { 
     visibility: hidden;
   }
@@ -196,6 +217,9 @@
     background-color: #2196F3;
   }
   input:checked + .shuffle {
+    background-color: #2196F3;
+  }
+  input:checked + .speed {
     background-color: #2196F3;
   }
   .button {
@@ -335,6 +359,11 @@
     <label class="play">
       <input type="checkbox" id="musicShuffle" onclick="musicShuffle()">
       <span class="shuffle"><img src="https://tresre.dev/music/assets/img/shuffle.png" alt="" style="width:30px; height:30px; object-fit: cover; cursor: pointer; padding-top: 10px;"></span>
+    </label>
+    
+    <label class="play">
+      <input type="checkbox" id="musicSpeed" onclick="musicSpeed()">
+      <span class="speed"><img src="https://tresre.dev/music/assets/img/speed.png" alt="" style="width:40px; height:40px; object-fit: cover; cursor: pointer; padding-top: 5px;"></span>
     </label>
   </div>
   
@@ -554,6 +583,17 @@ function musicShuffle() {
     	  chooseSong(0);
         }
     }
+}
+
+function musicSpeed() {
+	var setmusic = music;
+    if (setmusic.playbackRate > 1) {
+		setmusic.playbackRate = 1; 
+        setmusic.preservesPitch = true;
+    } else {
+    	setmusic.playbackRate = 1.5; 
+        setmusic.preservesPitch = false;
+	}
 }
 
 function musicVolume(vol) {
