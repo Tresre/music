@@ -43,21 +43,21 @@ function setPlaylist(playlistChoice) {
     document.getElementById("playlist3").checked = false;
     document.getElementById("playlist4").checked = false;
     playlist = [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
-      "11",
-      "12",
-      "13",
-      "14",
-      "15"
+      "10000_Hours$Dan_and_Shay_and_Justin_Bieber",
+      "Come_Back_As_A_Country_Boy$Blake_Shelton",
+      "Cowboy_Killer$Ian_Munsick",
+      "Fall_In_Love$Bailey_Zimmerman",
+      "Fancy_Like$Walker_Hayes",
+      "Holy_Water$Michael_Ray",
+      "Never_Comin_Home$Bailey_Zimmerman",
+      "Out_in_the_Middle$Zac_Brown_Band",
+      "Remember_When$Alan_Jackson",
+      "Shot_Glass$Randall_King",
+      "Take_Me_Home_Country_Roads$John_Denver",
+      "Til_You_Cant$Cody_Johnson",
+      "Wagon_Wheel$Darius_Rucker",
+      "What_Ifs$Kane_Brown",
+      "When_It_Rains_It_Pours$Luke_Combs"
     ];
   }
   
