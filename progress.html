@@ -613,24 +613,24 @@ function musicVolume(vol) {
 
 function volumeUp() {
   setTimeout(function() {
-  	console.log(music.volume);
     if (music.volume < 0.99) {
       music.volume += 0.1;
       volumeUp();
     } else {
       music.volume = 1;
+      return;
     }
   }, 10)
 }
 
 function volumeDown() {
   setTimeout(function() {
-  	console.log(music.volume);
     if (music.volume > 0.01) {
       music.volume -= 0.1;
       volumeDown();
     } else {
       music.volume = 0;
+      return;
     }
   }, 10)
 }
