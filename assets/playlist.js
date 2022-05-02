@@ -93,21 +93,21 @@ function setPlaylist(playlistChoice) {
     document.getElementById("playlist3").checked = false;
     document.getElementById("playlist4").checked = true;
     playlist = [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
-      "11",
-      "12",
-      "13",
-      "14",
-      "15"
+      "Crazy_Train$Ozzy_Osbourne",
+      "Dont_Stop_Believin$Journey",
+      "Eye_Of_The_Tiger$Survivor",
+      "Gimme_Shelter$The_Rolling_Stones",
+      "House_Of_The_Rising_Sun$The_Animals",
+      "I_Was_Made_For_Lovin_You$KISS",
+      "Immigrant_Song$Led_Zeppelin",
+      "Livin_On_A_Prayer$Bon_Jovi",
+      "Paradise_City$Guns_N_Roses",
+      "Send_Me_An_Angel$Real_Life",
+      "Sunglasses_At_Night$Corey_Hart",
+      "The_Chain$Fleetwood_Mac",
+      "Walk_Like_An_Egyptian$The_Bangles",
+      "We_Didnt_Start_The_Fire$Billy_Joel",
+      "We_Will_Rock_You$Queen"
     ];
   }
   
