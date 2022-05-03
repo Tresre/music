@@ -280,7 +280,7 @@ function mots() {
   	setmusic.pause();
   }
 
-  var songChoice = "Je_Te_Laisserai_Des_Mots$Patrick_Watson";
+  songChoice = "Je_Te_Laisserai_Des_Mots$Patrick_Watson";
   const splitSong = songChoice.split("$");
   songName = splitSong[0];
   songName = songName.replace(/_/g, " ");
