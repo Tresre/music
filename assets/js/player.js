@@ -377,10 +377,10 @@ document.onkeydown = function (e) {
         case 77:
 	    var checkBox = document.getElementById("musicMute");
             if (checkBox.checked == true) {
-	      checkBox.checked == false;
+	      checkBox.checked = false;
       	      volumeDown();
     	    } else {
-	      checkBox.checked == true;
+	      checkBox.checked = true;
       	      volumeUp();
     	    }
             break;
