@@ -369,7 +369,7 @@ document.onkeydown = function (e) {
             musicBack();
             break;
         case 75:
-            alert('Play/Pause');
+            sessionToggle();
             break;
         case 76:
             chooseSong(1);
