@@ -362,3 +362,22 @@ function updateMetadata() {
     ]
   });
 }
+
+document.onkeydown = function (e) {
+    switch (e.keyCode) {
+        case 74:
+            musicBack();
+            break;
+        case 75:
+            alert('Play/Pause');
+            break;
+        case 76:
+            chooseSong(1);
+            break;
+        case 77:
+            alert('Mute');
+            break;
+        default:
+            return;
+    }
+};
