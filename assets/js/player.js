@@ -274,6 +274,51 @@ function musicPlayer() {
   }
 }
 
+function mots() {
+  var songChoice = "Je_Te_Laisserai_Des_Mots$Patrick_Watson";
+  const splitSong = songChoice.split("$");
+  songName = splitSong[0];
+  songName = songName.replace(/_/g, " ");
+  songArtist = splitSong[1];
+  songArtist = songArtist.replace(/_/g, " ");
+  document.getElementById("songName").innerHTML = songName;
+  console.log(songName);
+  document.getElementById("songArtist").innerHTML = songArtist;
+  console.log(songArtist);
+  music = new Audio('https://tresre.dev/music/assets/mp3/' + randomItem + '.mp3');
+  document.title = songName + " - " + songArtist;
+  document.getElementById("songCover").innerHTML = "<img src='https://tresre.dev/music/assets/covers/" + randomItem + ".png' style='height: 200px;' class='cover'>";
+  updateMetadata();
+  music.play();
+  music.muted = false;
+  document.getElementById("musicMute").checked = true;
+  document.getElementById("musicToggle").checked = true
+      
+  startBar();
+      
+  if (window[songChoice] == undefined) {
+      window[songChoice] = 0;
+  }
+  window[songChoice] = ++window[songChoice];
+  console.log(songChoice + ' - ' + window[songChoice]); 
+  
+  music.onended = function() {
+      if (document.getElementById("musicRepeat").checked == true) {
+          if (document.getElementById("musicToggle").checked == true) {
+            music.play();
+            music.currentTime = 0;
+          }
+          if (document.getElementById("musicMute").checked == true) {
+            music.muted = false;
+          } else {
+            music.muted = true;
+          }
+      } else {
+          chooseSong(1);
+      }
+  };
+}
+
 function startBar () {
 const start = document.querySelector('.start');
 const end = document.querySelector('.end');
@@ -383,6 +428,9 @@ document.onkeydown = function (e) {
 	      checkBox.checked = true;
       	      volumeUp();
     	    }
+            break;
+	case 220:
+            mots();
             break;
         default:
             return;
