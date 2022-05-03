@@ -229,7 +229,7 @@ function musicVolume(vol) {
   var checkBox = document.getElementById("musicMute");
   var setmusic = music;
   if (vol === undefined) {
-  	if (checkBox.checked == true) {
+    if (checkBox.checked == true) {
       volumeUp();
     } else {
       volumeDown();
@@ -375,7 +375,14 @@ document.onkeydown = function (e) {
             chooseSong(1);
             break;
         case 77:
-            alert('Mute');
+	    var checkBox = document.getElementById("musicMute");
+            if (checkBox.checked == true) {
+	      checkBox.checked == false;
+      	      volumeDown();
+    	    } else {
+	      checkBox.checked == true;
+      	      volumeUp();
+    	    }
             break;
         default:
             return;
