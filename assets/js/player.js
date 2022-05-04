@@ -241,27 +241,21 @@ function musicVolume(vol) {
 }
 
 function volumeUp() {
-  setTimeout(function() {
-    if (music.volume < 0.99) {
+  for (var i=1;i<=10; i++) {
+    setTimeout(function() {
       music.volume += 0.1;
-      volumeUp();
-    } else {
-      music.volume = 1;
-      return;
-    }
-  }, 10)
+    }, 10)
+  }
+  music.volume = 1;
 }
 
 function volumeDown() {
-  setTimeout(function() {
-    if (music.volume > 0.01) {
+  for (var i=1;i<=10; i++) {
+    setTimeout(function() {
       music.volume -= 0.1;
-      volumeDown();
-    } else {
-      music.volume = 0;
-      return;
-    }
-  }, 10)
+    }, 10)
+  }
+  music.volume = 0;
 }
 
 function musicPlayer() {
