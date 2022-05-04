@@ -249,7 +249,6 @@ function volumeUp() {
       music.volume += 0.1;
     }, setDelay)
   }
-  music.volume = 1;
 }
 
 function volumeDown() {
@@ -261,7 +260,6 @@ function volumeDown() {
       music.volume -= 0.1;
     }, setDelay)
   }
-  music.volume = 0;
 }
 
 function musicPlayer() {
