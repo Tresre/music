@@ -245,6 +245,7 @@ function volumeUp() {
   for (var i=1;i<=10; i++) {
     setDelay += 10;
     setTimeout(function() {
+      console.log(setDelay);
       music.volume += 0.1;
     }, setDelay)
   }
@@ -256,6 +257,7 @@ function volumeDown() {
   for (var i=1;i<=10; i++) {
     setDelay += 10;
     setTimeout(function() {
+      console.log(setDelay);
       music.volume -= 0.1;
     }, setDelay)
   }
