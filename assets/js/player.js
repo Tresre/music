@@ -241,19 +241,23 @@ function musicVolume(vol) {
 }
 
 function volumeUp() {
+  var setDelay = 10;
   for (var i=1;i<=10; i++) {
     setTimeout(function() {
       music.volume += 0.1;
-    }, 10)
+    }, setDelay)
+    setDelay += 10;
   }
   music.volume = 1;
 }
 
 function volumeDown() {
+  var setDelay = 10;
   for (var i=1;i<=10; i++) {
     setTimeout(function() {
       music.volume -= 0.1;
-    }, 10)
+    }, setDelay)
+    setDelay += 10;
   }
   music.volume = 0;
 }
