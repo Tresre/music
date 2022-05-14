@@ -4,7 +4,15 @@ var shuffleChoice;
 var playlist = [];
 var playedSongs = [];
 var dupeSongs = [];
-setPlaylist();
+
+var hidden = window.location.href; 
+var url = hidden.substring(hidden.indexOf("?")+1);
+var text = String(url);
+if (text !== undefined) {
+  setPlaylist(text);
+} else {
+  setPlaylist();
+}
 
 
 function chooseSong(p) {
