@@ -8,7 +8,7 @@ var dupeSongs = [];
 var hidden = window.location.href; 
 var url = hidden.substring(hidden.indexOf("?")+1);
 var text = String(url);
-if (text !== undefined) {
+if (text !== "") {
   setPlaylist(text);
 } else {
   setPlaylist();
