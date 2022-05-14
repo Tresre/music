@@ -5,14 +5,13 @@ var playlist = [];
 var playedSongs = [];
 var dupeSongs = [];
 
-var hidden = window.location.href; 
-var url = hidden.substring(hidden.indexOf("?")+1);
-var text = String(url);
-console.log("!" + text + "!");
-if (text.includes("undefined") == true) {
-  setPlaylist();
-} else {
+var hidden = window.location.href;
+if (hidden.includes("?") == true) {
+  var url = hidden.substring(hidden.indexOf("?")+1);
+  var text = String(url);
   setPlaylist(text);
+} else {
+  setPlaylist();
 }
 
 function chooseSong(p) {
