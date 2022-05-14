@@ -1,8 +1,3 @@
-var hidden = window.location.href; 
-var url = hidden.substring(hidden.indexOf("?")+1);
-var text = String(url);
-setPlaylist(text);
-
 function setPlaylist(playlistChoice) {
   if (playlistChoice == undefined) {
     setPlaylist("pop");
