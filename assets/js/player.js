@@ -9,10 +9,10 @@ var hidden = window.location.href;
 var url = hidden.substring(hidden.indexOf("?")+1);
 var text = String(url);
 console.log("!" + text + "!");
-if (text !== "") {
-  setPlaylist(text);
-} else {
+if (text.includes("undefined") == true) {
   setPlaylist();
+} else {
+  setPlaylist(text);
 }
 
 function chooseSong(p) {
