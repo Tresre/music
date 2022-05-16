@@ -343,8 +343,8 @@
     z-index: 5;
   }
   @media only screen  
-    and (max-device-width: 800px) 
-    and (-webkit-min-device-pixel-ratio: 3) { 
+    and (max-device-width: 850px) 
+    and (-webkit-min-device-pixel-ratio: 2) { 
       .keybinds {
         z-index: -1;
         font-size: 0;
