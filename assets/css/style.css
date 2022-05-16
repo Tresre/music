@@ -347,5 +347,6 @@
     and (-webkit-min-device-pixel-ratio: 3) { 
       .keybinds {
         z-index: -1;
+        font-size: 0;
       }
   }
