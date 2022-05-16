@@ -334,7 +334,7 @@
     transform: scale(0.95);
   }
   .keybinds {
-  	position: fixed; 
+    position: fixed; 
     bottom: 10px; 
     right: 10px; 
     color: white; 
