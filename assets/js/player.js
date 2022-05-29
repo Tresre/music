@@ -26,19 +26,19 @@ function chooseSong(p) {
     ++nextIndex;
     console.log(lastIndex + " " + nextIndex + " " + lastSong);
     if (nextIndex >= playlist.length) {
-        nextIndex = 0;
-        dupeSongs = [];
+      nextIndex = 0;
+      dupeSongs = [];
     }
     if (lastIndex == undefined) {
-    	var randomItem = playlist[0];
+     var randomItem = playlist[0];
     } else {
-    	var randomItem = playlist[nextIndex];
+      var randomItem = playlist[nextIndex];
     }
   }
   
   var setmusic = music;
   if (setmusic !== undefined) {
-  	setmusic.pause();
+    setmusic.pause();
   }
   
   if (lastSong === randomItem) {
@@ -68,14 +68,14 @@ function chooseSong(p) {
       document.getElementById("songCover").innerHTML = "<img src='https://tresre.dev/music/assets/covers/" + randomItem + ".png' style='height: 200px;' class='cover'>";
       updateMetadata();
       dupeSongs.push(songChoice);
-	  playedSongs.push(songChoice);
+      playedSongs.push(songChoice);
       console.log(playedSongs);
-  	  console.log(dupeSongs);
+      console.log(dupeSongs);
       
       startBar();
       
       if (window[songChoice] == undefined) {
-  	    window[songChoice] = 0;
+  	window[songChoice] = 0;
       }
       window[songChoice] = ++window[songChoice];
       console.log(songChoice + ' - ' + window[songChoice]); 
@@ -86,7 +86,7 @@ function chooseSong(p) {
             music.play();
             music.currentTime = 0;
             window[songChoice] = ++window[songChoice];
-     		console.log(songChoice + ' - ' + window[songChoice]); 
+            console.log(songChoice + ' - ' + window[songChoice]); 
           }
           if (document.getElementById("musicMute").checked == true) {
             music.muted = false;
@@ -121,26 +121,26 @@ function musicBack() {
   
   if (document.getElementById("musicShuffle").checked == true) {
     if (playedSongs.length > 1) {
-    	var lastIndex = --playedSongs.length;
-    	var nextIndex = --lastIndex;
-    	var randomItem = playedSongs[nextIndex];
+      var lastIndex = --playedSongs.length;
+      var nextIndex = --lastIndex;
+      var randomItem = playedSongs[nextIndex];
     } else {
-		var randomItem = playedSongs[0];
-        return;
+      var randomItem = playedSongs[0];
+      return;
     }
   } else {
     var lastIndex = playlist.indexOf(currentSong);
     var nextIndex = --lastIndex;
     dupeSongs.splice(lastIndex, 1);
     if (nextIndex < 0) {
-        var nextIndex = playlist.length;
-        --nextIndex;
-        dupeSongs = [];
+      var nextIndex = playlist.length;
+      --nextIndex;
+      dupeSongs = [];
     }
     if (lastIndex == undefined) {
-    	var randomItem = playlist[0];
+      var randomItem = playlist[0];
     } else {
-    	var randomItem = playlist[nextIndex];
+      var randomItem = playlist[nextIndex];
     }
   }
   
@@ -150,7 +150,7 @@ function musicBack() {
   
   var setmusic = music;
   if (setmusic !== undefined) {
-  	setmusic.pause();
+    setmusic.pause();
   }
   
   var splitpre = String(songChoice);
@@ -208,28 +208,28 @@ function musicBack() {
 
 
 function musicShuffle() {
-    if (document.getElementById("musicShuffle").checked == true) {
-    	if (document.getElementById("musicToggle").checked == true) {
-          playedSongs = [];
-          dupeSongs = [];
-          chooseSong(1);
-        } else {
-          playedSongs = [];
-          dupeSongs = [];
-    	  chooseSong(0);
-        }
+  if (document.getElementById("musicShuffle").checked == true) {
+    if (document.getElementById("musicToggle").checked == true) {
+      playedSongs = [];
+      dupeSongs = [];
+      chooseSong(1);
+    } else {
+      playedSongs = [];
+      dupeSongs = [];
+      chooseSong(0);
     }
+  }
 }
 
 function musicSpeed() {
-    var setmusic = music;
-    if (setmusic.playbackRate > 1) {
-		setmusic.playbackRate = 1; 
-        setmusic.preservesPitch = true;
-    } else {
-    	setmusic.playbackRate = 1.25; 
-        setmusic.preservesPitch = false;
-	}
+  var setmusic = music;
+  if (setmusic.playbackRate > 1) {
+    setmusic.playbackRate = 1; 
+    setmusic.preservesPitch = true;
+  } else {
+    setmusic.playbackRate = 1.25; 
+    setmusic.preservesPitch = false;
+  }
 }
 
 function musicVolume(vol) {
@@ -280,7 +280,7 @@ function musicPlayer() {
 function mots(mots) {
   var setmusic = music;
   if (setmusic !== undefined) {
-  	setmusic.pause();
+    setmusic.pause();
   }
 
   songChoice = mots;
@@ -305,48 +305,48 @@ function mots(mots) {
   startBar();
       
   if (window[songChoice] == undefined) {
-      window[songChoice] = 0;
+    window[songChoice] = 0;
   }
   window[songChoice] = ++window[songChoice];
   console.log(songChoice + ' - ' + window[songChoice]); 
   
   music.onended = function() {
-      if (document.getElementById("musicRepeat").checked == true) {
-          if (document.getElementById("musicToggle").checked == true) {
-            music.play();
-            music.currentTime = 0;
-          }
-          if (document.getElementById("musicMute").checked == true) {
-            music.muted = false;
-          } else {
-            music.muted = true;
-          }
-      } else {
-          chooseSong(1);
+    if (document.getElementById("musicRepeat").checked == true) {
+      if (document.getElementById("musicToggle").checked == true) {
+        music.play();
+        music.currentTime = 0;
       }
+      if (document.getElementById("musicMute").checked == true) {
+        music.muted = false;
+      } else {
+        music.muted = true;
+      }
+    } else {
+      chooseSong(1);
+    }
   };
 }
 
 function startBar () {
-const start = document.querySelector('.start');
-const end = document.querySelector('.end');
-const progressBar = document.querySelector('.progress-bar');
-const now = document.querySelector('.now');
+  const start = document.querySelector('.start');
+  const end = document.querySelector('.end');
+  const progressBar = document.querySelector('.progress-bar');
+  const now = document.querySelector('.now');
 
-function conversion (value) {
+  function conversion (value) {
     let minute = Math.floor(value / 60)
     minute = minute.toString().length === 1 ? ('0' + minute) : minute
     let second = Math.round(value % 60)
     second = second.toString().length === 1 ? ('0' + second) : second
     return `${minute}:${second}`
-}
+  }
 
-music.onloadedmetadata = function () {
+  music.onloadedmetadata = function () {
     end.innerHTML = conversion(music.duration)
     start.innerHTML = conversion(music.currentTime)
-}
+  }
 
-progressBar.addEventListener('click', function (event) {
+  progressBar.addEventListener('click', function (event) {
     let coordStart = this.getBoundingClientRect().left
     let coordEnd = event.pageX
     let p = (coordEnd - coordStart) / this.offsetWidth
@@ -354,12 +354,12 @@ progressBar.addEventListener('click', function (event) {
 
     music.currentTime = p * music.duration
     
-})
+  })
   
-setInterval(() => {
-  start.innerHTML = conversion(music.currentTime)
-  now.style.width = music.currentTime / music.duration.toFixed(3) * 100 + '%'
-}, 1000)
+  setInterval(() => {
+    start.innerHTML = conversion(music.currentTime)
+    now.style.width = music.currentTime / music.duration.toFixed(3) * 100 + '%'
+  }, 1000)
 }
 
 
@@ -387,10 +387,10 @@ function sessionToggle() {
   var checkBox = document.getElementById("musicToggle");
   var setmusic = music;
   if (checkBox.checked == true) {
-  	document.getElementById("musicToggle").checked = false;
+    document.getElementById("musicToggle").checked = false;
     setmusic.pause();
   } else {
-  	document.getElementById("musicToggle").checked = true;
+    document.getElementById("musicToggle").checked = true;
     setmusic.play();
   }
 }
