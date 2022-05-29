@@ -211,11 +211,11 @@ function musicShuffle() {
     if (document.getElementById("musicShuffle").checked == true) {
     	if (document.getElementById("musicToggle").checked == true) {
           playedSongs = [];
-		  dupeSongs = [];
+          dupeSongs = [];
           chooseSong(1);
         } else {
           playedSongs = [];
-		  dupeSongs = [];
+          dupeSongs = [];
     	  chooseSong(0);
         }
     }
