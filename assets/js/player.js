@@ -293,9 +293,9 @@ function mots() {
   console.log(songName);
   document.getElementById("songArtist").innerHTML = songArtist;
   console.log(songArtist);
-  music = new Audio('https://tresre.dev/music/assets/mp3/Je_Te_Laisserai_Des_Mots$Patrick_Watson.mp3');
+  music = new Audio('https://tresre.dev/music/assets/mp3/' + songChoice + '.mp3');
   document.title = songName + " - " + songArtist;
-  document.getElementById("songCover").innerHTML = "<img src='https://tresre.dev/music/assets/covers/Je_Te_Laisserai_Des_Mots$Patrick_Watson.png' style='height: 200px;' class='cover'>";
+  document.getElementById("songCover").innerHTML = "<img src='https://tresre.dev/music/assets/covers/" + songChoice + ".png' style='height: 200px;' class='cover'>";
   updateMetadata();
   music.play();
   music.muted = false;
