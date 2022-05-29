@@ -14,6 +14,7 @@ if (hidden.includes("?") == true) {
   setPlaylist();
 }
 
+
 function chooseSong(p) {
   var lastSong = songChoice;
   document.getElementById("musicSpeed").checked = false;
@@ -115,6 +116,7 @@ function chooseSong(p) {
   }
 }
 
+
 function musicBack() {
   var currentSong = songChoice;
   document.getElementById("musicSpeed").checked = false;
@@ -206,7 +208,6 @@ function musicBack() {
 }
 
 
-
 function musicShuffle() {
   if (document.getElementById("musicShuffle").checked == true) {
     if (document.getElementById("musicToggle").checked == true) {
@@ -221,6 +222,7 @@ function musicShuffle() {
   }
 }
 
+
 function musicSpeed() {
   var setmusic = music;
   if (setmusic.playbackRate > 1) {
@@ -231,6 +233,7 @@ function musicSpeed() {
     setmusic.preservesPitch = false;
   }
 }
+
 
 function musicVolume(vol) {
   var checkBox = document.getElementById("musicMute");
@@ -247,6 +250,7 @@ function musicVolume(vol) {
   }
 }
 
+
 function volumeUp() {
   var setDelay = 0;
   for (var i=1;i<=10; i++) {
@@ -256,6 +260,7 @@ function volumeUp() {
     }, setDelay)
   }
 }
+
 
 function volumeDown() {
   var setDelay = 0;
@@ -267,6 +272,7 @@ function volumeDown() {
   }
 }
 
+
 function musicPlayer() {
   var checkBox = document.getElementById("musicToggle");
   var setmusic = music;
@@ -276,6 +282,7 @@ function musicPlayer() {
     setmusic.pause();
   }
 }
+
 
 function mots(mots) {
   var setmusic = music;
@@ -326,6 +333,7 @@ function mots(mots) {
     }
   };
 }
+
 
 function startBar () {
   const start = document.querySelector('.start');
@@ -383,6 +391,7 @@ navigator.mediaSession.setActionHandler('pause', function() {
   sessionToggle();
 });
 
+
 function sessionToggle() {
   var checkBox = document.getElementById("musicToggle");
   var setmusic = music;
@@ -395,6 +404,7 @@ function sessionToggle() {
   }
 }
 
+
 function updateMetadata() {
   const splitSong = songChoice.split("$");
   songName = splitSong[0];
@@ -406,7 +416,7 @@ function updateMetadata() {
     title: songName,
     artist: songArtist,
     artwork: [
-      { src: 'https://tresre.dev/music/assets/covers/' + songChoice + '.png',   sizes: '96x96',   type: 'image/png' },
+      { src: 'https://tresre.dev/music/assets/covers/' + songChoice + '.png', sizes: '96x96',   type: 'image/png' },
       { src: 'https://tresre.dev/music/assets/covers/' + songChoice + '.png', sizes: '128x128', type: 'image/png' },
       { src: 'https://tresre.dev/music/assets/covers/' + songChoice + '.png', sizes: '192x192', type: 'image/png' },
       { src: 'https://tresre.dev/music/assets/covers/' + songChoice + '.png', sizes: '256x256', type: 'image/png' },
@@ -415,6 +425,7 @@ function updateMetadata() {
     ]
   });
 }
+
 
 document.onkeydown = function (e) {
     switch (e.keyCode) {
