@@ -129,7 +129,7 @@ function musicBack() {
         return;
     }
   } else {
-  	var lastIndex = playlist.indexOf(currentSong);
+    var lastIndex = playlist.indexOf(currentSong);
     var nextIndex = --lastIndex;
     dupeSongs.splice(lastIndex, 1);
     if (nextIndex < 0) {
@@ -222,7 +222,7 @@ function musicShuffle() {
 }
 
 function musicSpeed() {
-	var setmusic = music;
+    var setmusic = music;
     if (setmusic.playbackRate > 1) {
 		setmusic.playbackRate = 1; 
         setmusic.preservesPitch = true;
