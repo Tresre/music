@@ -277,13 +277,13 @@ function musicPlayer() {
   }
 }
 
-function mots() {
+function mots(mots) {
   var setmusic = music;
   if (setmusic !== undefined) {
   	setmusic.pause();
   }
 
-  songChoice = "Je_Te_Laisserai_Des_Mots$Patrick_Watson";
+  songChoice = mots;
   const splitSong = songChoice.split("$");
   songName = splitSong[0];
   songName = songName.replace(/_/g, " ");
@@ -438,7 +438,7 @@ document.onkeydown = function (e) {
     	    }
             break;
 	case 220:
-            mots();
+            mots("Je_Te_Laisserai_Des_Mots$Patrick_Watson");
             break;
         default:
             return;
