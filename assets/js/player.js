@@ -259,6 +259,9 @@ function volumeUp() {
       music.volume += 0.1;
     }, setDelay)
   }
+  setTimeout(function() {
+    music.muted = false;
+  }, 100)
 }
 
 
@@ -270,6 +273,9 @@ function volumeDown() {
       music.volume -= 0.1;
     }, setDelay)
   }
+  setTimeout(function() {
+    music.muted = true;
+  }, 100)
 }
 
 
