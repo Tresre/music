@@ -11,7 +11,9 @@ if (hidden.includes("?") == true) {
   var text = String(url);
   if (text.includes("song") == true) {
     var song = text.split("=")[1];
+    setPlaylist();
     mots(song);
+    document.getElementById("musicToggle").checked = true;
   } else {
     setPlaylist(text);
   }
@@ -318,7 +320,7 @@ function mots(mots) {
   music.play();
   music.muted = false;
   document.getElementById("musicMute").checked = true;
-  document.getElementById("musicToggle").checked = true
+  document.getElementById("musicToggle").checked = true;
       
   startBar();
       
