@@ -13,7 +13,7 @@ if (hidden.includes("?") == true) {
     var song = text.split("=")[1];
     setPlaylist();
     mots(song);
-    document.getElementById("musicToggle").checked = true;
+    document.getElementById("musicToggle").checked = false;
   } else {
     setPlaylist(text);
   }
