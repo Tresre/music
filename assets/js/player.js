@@ -9,7 +9,12 @@ var hidden = window.location.href;
 if (hidden.includes("?") == true) {
   var url = hidden.substring(hidden.indexOf("?")+1);
   var text = String(url);
-  setPlaylist(text);
+  if (text.includes("song") == true) {
+    var song = text.split("=")[1];
+    mots(song);
+  } else {
+    setPlaylist(text);
+  }
 } else {
   setPlaylist();
 }
