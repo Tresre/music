@@ -5,7 +5,8 @@ function redirect() {
   var playlist = location.pathname.split("/")[
     PATH_SEGMENTS_TO_SKIP + 1
   ];
-  window.location.href = playlist;
+  console.log(playlist);
+  window.location.href = "https://tresre.dev/music/?" + playlist;
 }
 
 redirect();
