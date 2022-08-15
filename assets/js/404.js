@@ -5,10 +5,8 @@ function redirect() {
   var playlist = location.pathname.split("/")[
     PATH_SEGMENTS_TO_SKIP + 1
   ];
-  if (playlist == "song") {
-    var song = location.pathname.split("/")[
-      PATH_SEGMENTS_TO_SKIP + 2
-    ];
+  if (playlist.includes("song") == true) {
+    var song = location.pathname.split("=")[1];
     console.log("https://tresre.dev/music/?" + playlist + "/" + song);
     window.location.href = "https://tresre.dev/music/?" + playlist;
     mots(song);
