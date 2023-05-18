@@ -17,6 +17,7 @@ function setPlaylist(playlistChoice) {
     document.getElementById("playlist2").checked = false;
     document.getElementById("playlist3").checked = false;
     document.getElementById("playlist4").checked = false;
+    document.getElementById("playlist5").checked = false;
     playlist = [
       "All_About_You$The_Knocks",
       "All_Alone$Fun",
@@ -42,6 +43,7 @@ function setPlaylist(playlistChoice) {
     document.getElementById("playlist2").checked = true;
     document.getElementById("playlist3").checked = false;
     document.getElementById("playlist4").checked = false;
+    document.getElementById("playlist5").checked = false;
     playlist = [
       "Bonfire$Craig_Morgan",
       "Come_Back_As_A_Country_Boy$Blake_Shelton",
@@ -67,6 +69,7 @@ function setPlaylist(playlistChoice) {
     document.getElementById("playlist2").checked = false;
     document.getElementById("playlist3").checked = true;
     document.getElementById("playlist4").checked = false;
+    document.getElementById("playlist5").checked = false;
     playlist = [
       "AllttA$20syl",
       "Atmospherica$Squiid",
@@ -92,6 +95,7 @@ function setPlaylist(playlistChoice) {
     document.getElementById("playlist2").checked = false;
     document.getElementById("playlist3").checked = false;
     document.getElementById("playlist4").checked = true;
+    document.getElementById("playlist5").checked = false;
     playlist = [
       "Crazy_Train$Ozzy_Osbourne",
       "Dont_Stop_Believin$Journey",
@@ -108,6 +112,19 @@ function setPlaylist(playlistChoice) {
       "Walk_Like_An_Egyptian$The_Bangles",
       "We_Didnt_Start_The_Fire$Billy_Joel",
       "We_Will_Rock_You$Queen"
+    ];
+  }
+  
+  if (playlistChoice == "lofi") {
+    console.log("lofi loaded");
+    document.getElementById("playlist1").checked = false;
+    document.getElementById("playlist2").checked = false;
+    document.getElementById("playlist3").checked = false;
+    document.getElementById("playlist4").checked = false;
+    document.getElementById("playlist5").checked = true;
+    playlist = [
+      "",
+      ""
     ];
   }
   
