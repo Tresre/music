@@ -123,8 +123,21 @@ function setPlaylist(playlistChoice) {
     document.getElementById("playlist4").checked = false;
     document.getElementById("playlist5").checked = true;
     playlist = [
-      "",
-      ""
+      "Blue_Boi$LAKEY_INSPIRED",
+      "The_Final_Blow$aKu",
+      "Biscuit$Lukrembo",
+      "Lighter$midsummer",
+      "Serenity$Riddiman",
+      "Bread$Lukrembo",
+      "My_Sacrifice$Homie_Cat",
+      "Destination_Unknown$Aimes",
+      "Herbal_Tea$Artificial_Music",
+      "FLOAT$Smino_Ft_KOTA",
+      "www_is_a_thing$Dj_Quads",
+      "Autumn$Lee",
+      "Chilling$Meister_Beats",
+      "Eternal_Youth$RUDE",
+      "Grace$Tenno"
     ];
   }
   
